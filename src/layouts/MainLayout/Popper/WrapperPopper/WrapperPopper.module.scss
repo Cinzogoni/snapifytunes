@@ -1,0 +1,30 @@
+.wrapper {
+  width: 100%;
+  max-height: min((100vh - 96px) - 60px, 345px);
+  min-height: 60px;
+  background: var(--5th--element-bg);
+  border: var(--1st--border-element);
+  box-shadow: var(--1st--box-shadow);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--main-background-color);
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(235, 235, 235, 1);
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 150, 150, 1);
+  }
+}

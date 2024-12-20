@@ -1,0 +1,73 @@
+.playlists {
+  width: 302px;
+  height: 100%;
+  padding: 15px 30px 30px 30px;
+  background: var(--5th-background-color);
+  border: var(--separation--border-layout);
+  border-radius: var(--2nd--border-radius);
+}
+
+.heading {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-playlistItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  color: var(--2nd--text-color);
+  transition: transform 0.05s ease-in-out;
+
+  &:hover {
+    transform: scale(1.3);
+  }
+}
+
+.showModal {
+  transform: scale(1);
+}
+
+.title {
+  color: var(--2nd--text-color);
+}
+
+.frame {
+  width: 100%;
+  height: 100vh;
+  max-height: calc(100vh - 476px);
+  border: var(--3rd--border-element);
+  border-radius: var(--2nd--border-radius);
+  background: var(--5th--element-bg);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--main-background-color);
+    border-radius: 1px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(235, 235, 235, 1);
+    border-radius: 1px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 150, 150, 1);
+  }
+}
+
+//
+.fixPosition {
+  transform: translateY(303px);
+}

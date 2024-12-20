@@ -1,0 +1,128 @@
+@import "normalize.css";
+
+:root {
+  //Fonts
+  --main--text-font: "ProximaNova", sans-serif;
+
+  //Size
+  --1st--font-size: 2.575rem;
+  --2nd--font-size: 2.175rem;
+  --1st--padding-size: 30px;
+
+  //Text Color
+  --1st--text-color: rgba(255, 255, 255, 0.8);
+  --2nd--text-color: rgba(12, 12, 20, 0.8);
+  --rating--text-color: rgb(214, 186, 60);
+
+  //Color
+  --1st--background-linear: linear-gradient(
+    to right,
+    #0a0f1b,
+    #16283d 50%,
+    #0a0f1b
+  );
+  --2nd--background-linear: linear-gradient(to left, #16243e, #1f3c57 50%);
+  --3rd--background-linear: linear-gradient(to right, #16243e 50%, #1f3c57);
+
+  --1st-background-color: #101d2f;
+  --2nd-background-color: rgba(10, 15, 27, 0.5);
+  --3rd-background-color: rgba(10, 15, 27, 0.8);
+  --4th-background-color: #16243e;
+  --5th-background-color: rgba(255, 255, 255, 0.8);
+  --6th-background-color: rgba(184, 180, 180, 0.4);
+  --main--button-color: #ffffff;
+  --waveform--animate-color: #ffffff;
+  --1st--element-bg: #ffffff;
+  --2nd--element-bg: rgba(12, 12, 20, 0.8);
+  --3rd--element-bg: rgba(150, 150, 150, 1);
+  --4th--element-bg: rgba(128, 128, 128, 0.2);
+  --5th--element-bg: rgba(12, 12, 20, 0.9);
+  --6th--element-bg: rgba(150, 150, 150, 0.3);
+
+  //Border
+  --separation--border-layout: 1.5px solid #746c6b75;
+  --1st--border-element: 1px solid #746c6b75;
+  --2nd--border-element: 0.2px solid #746c6b75;
+  --3rd--border-element: 2px solid #746c6b75;
+  --4th--border-element: 2px solid transparent;
+  --5th--border-element: 2px solid rgba(255, 255, 255, 0.5);
+  --6th--border-element: 2px solid rgba(255, 255, 255, 0.8);
+  --7th--border-element: 3px solid rgba(12, 12, 20, 0.8);
+
+  //Border-Radius
+  --1st--border-radius: 15px;
+  --2nd--border-radius: 7.5px;
+  --border--radius-rounded-corners: 20px;
+
+  //Shadow
+  --1st--box-shadow: 0px 2px 12px rgba(255, 255, 255, 0.15);
+  --2nd--box-shadow: 4px 4px 3px rgba(200, 200, 200, 0.8);
+  --3rd--box-shadow: 4px 4px 1.5px rgba(19, 18, 18, 0.8);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  user-select: none;
+  font-family: var(--main--text-font);
+  font-size: 62.5%;
+  text-rendering: optimizeSpeed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: var(--1st--text-color);
+}
+
+button,
+input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+a {
+  font-style: normal;
+  text-decoration: none;
+  color: var(--1st--text-color);
+}
+
+@font-face {
+  font-family: ProximaNova;
+  src: url("/assets/fonts/ProximaNovaT-Thin.woff2");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: ProximaNova;
+  src: url("/assets/fonts/ProximaNova-RegularIt.woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: ProximaNova;
+  src: url("/assets/fonts/ProximaNova-Semibold.woff2");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: ProximaNova;
+  src: url("/assets/fonts/ProximaNova-Bold.woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: ProximaNova;
+  src: url("/assets/fonts/ProximaNova-Extrabld.woff2");
+  font-weight: 800;
+}

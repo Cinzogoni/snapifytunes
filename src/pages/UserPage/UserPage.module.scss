@@ -1,0 +1,235 @@
+.container {
+  width: 100%;
+  height: 100%;
+  background: var(--4th-background-color);
+
+  overflow-y: auto;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 1px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(235, 235, 235, 1);
+    border-radius: 1px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 150, 150, 1);
+  }
+}
+
+.frame {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  flex: 1;
+  padding: 15px 30px 30px 30px;
+  background: var(--2nd--background-linear);
+  border-bottom-left-radius: var(--border--radius-rounded-corners);
+}
+
+.back-home {
+  width: 40px;
+  height: 40px;
+  margin: 0 30px 15px 0;
+  background-color: var(--main--button-color);
+  border: var(--1st--border-element);
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+}
+
+.arrow-left {
+  width: 25px;
+  height: 25px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.head {
+  width: 100%;
+  height: 200px;
+  display: flex;
+}
+
+.avatar-box {
+  position: relative;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: var(--3rd--border-element);
+  border-radius: var(--2nd--border-radius);
+  box-shadow: var(--2nd--box-shadow);
+}
+
+.image-desc {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  color: var(--2nd--text-color);
+  font-size: 3.2rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.change-avatar {
+  margin-left: 30px;
+  position: relative;
+}
+
+.avatar-input {
+  display: none;
+}
+
+.change-avatar-label {
+  width: 169px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--1st--element-bg);
+  color: var(--2nd--text-color);
+  border-radius: var(--2nd--border-radius);
+  border: var(--1st--border-element);
+  font-size: 1.6rem;
+  text-align: center;
+  cursor: pointer;
+
+  position: absolute;
+  bottom: 0;
+}
+
+.change-avatar-label:hover {
+  background-color: var(--2nd-background-color);
+  color: var(--1st--text-color);
+}
+
+.body {
+  flex: 2;
+  padding: 30px;
+  background: var(--3rd--background-linear);
+  border-top-right-radius: var(--border--radius-rounded-corners);
+  border-bottom-right-radius: var(--border--radius-rounded-corners);
+
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.full-name,
+.email,
+.phone-number,
+.password {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.title {
+  width: 25%;
+  font-size: 2rem;
+}
+
+.bold {
+  width: 55.2%;
+  font-size: 2rem;
+  padding-left: 15px;
+  color: var(--1st--text-color);
+  overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.verified {
+  width: 18%;
+  height: 40px;
+  background-color: var(--5th-background-color);
+  border: var(--1st--border-element);
+  border-radius: var(--2nd--border-radius);
+  transform: translateX(12px);
+}
+
+.change-password {
+  width: 18%;
+  height: 40px;
+  background-color: var(--5th-background-color);
+  border: var(--1st--border-element);
+  border-radius: var(--2nd--border-radius);
+  transform: translateX(12px);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+  }
+}
+
+.desc {
+  font-size: 1.4rem;
+  color: var(--2nd--text-color);
+  font-weight: 600;
+}
+
+@media (max-width: 630px) {
+  .head {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .avatar {
+    width: 100%;
+  }
+
+  .change-avatar {
+    position: static;
+    margin-left: 0;
+  }
+
+  .change-avatar-label {
+    position: static;
+    margin-top: 15px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    width: 30.33333%;
+  }
+
+  .bold {
+    width: 41.33333%;
+    font-size: 1.6rem;
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .verified,
+  .change-password {
+    width: 25.33333%;
+  }
+
+  .desc {
+    font-size: 1.2rem;
+  }
+}

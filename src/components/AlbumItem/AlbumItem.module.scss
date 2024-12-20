@@ -1,0 +1,38 @@
+.wrapper {
+  margin: 0 0 0 10px;
+}
+
+.info-box {
+  display: flex;
+  align-items: center;
+  margin: 8px 20px 10px 10px;
+  border-radius: 10px;
+}
+
+.info-box:hover {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.3);
+}
+
+.avatar {
+  object-fit: cover;
+  width: 66px;
+  height: 66px;
+  border: var(--main-border);
+  border-radius: 8px;
+  margin: 3px 0 3px 3px;
+}
+
+.info {
+  width: 100%;
+}
+
+.name {
+  font-size: var(--1st--font-size);
+  margin: 3px 6px;
+}
+
+.performer {
+  font-size: var(--2nd--font-size);
+  margin: 3px 6px;
+}
