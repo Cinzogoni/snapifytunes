@@ -1,4 +1,5 @@
 import videos from "~/assets/videosImport";
+import { baseName } from "~/bassName";
 
 const apiMoment = {
   getMoment: () => {
@@ -9,7 +10,7 @@ const apiMoment = {
         name: `THE PROCESS OF MAKING 12H03 - TOULIVER & MASTAL`,
         link:
           process.env.NODE_ENV === "production"
-            ? videos[`/snapifytunes/MAKING 12H03 TOULIVER MASTAL.mp4`]
+            ? videos[`${baseName}/MAKING 12H03 TOULIVER MASTAL.mp4`]
             : videos[`MAKING 12H03 TOULIVER MASTAL.mp4`],
       },
       {
@@ -18,7 +19,7 @@ const apiMoment = {
         name: "THE PROCESS OF MAKING ĐÀO LIỄU - TOULIVER & TRIPLE D",
         link:
           process.env.NODE_ENV === "production"
-            ? videos[`/snapifytunes/ĐÀO LIỄU TOULIVER TRIPLE D.mp4`]
+            ? videos[`${baseName}/ĐÀO LIỄU TOULIVER TRIPLE D.mp4`]
             : videos[`ĐÀO LIỄU TOULIVER TRIPLE D.mp4`],
       },
       {
@@ -27,7 +28,7 @@ const apiMoment = {
         name: `[BEAT BREAKDOWN] TRỐNG CƠM - TỰ LONG, SOOBIN, CƯỜNG SEVEN, (CÔNG DIỄN 1 ANH TRAI VƯỢT NGÀN CHÔNG GAI)`,
         link:
           process.env.NODE_ENV === "production"
-            ? videos[`/snapifytunes/BEAT TRỐNG CƠM-ATVNTG.mp4`]
+            ? videos[`${baseName}/BEAT TRỐNG CƠM-ATVNTG.mp4`]
             : videos[`BEAT TRỐNG CƠM-ATVNTG.mp4`],
       },
       {
@@ -36,7 +37,7 @@ const apiMoment = {
         name: `[BEAT BREAKDOWN] GIÀU SANG - TIẾT MỤC LIÊN MINH KAME | CÔNG DIỄN 2 ANH TRAI VƯỢT NGÀN CHÔNG GAI 2024`,
         link:
           process.env.NODE_ENV === "production"
-            ? videos[`/snapifytunes/GIÀUSANG-KrissNgo.mp4`]
+            ? videos[`${baseName}/GIÀUSANG-KrissNgo.mp4`]
             : videos[`GIÀUSANG-KrissNgo.mp4`],
       },
       {
@@ -45,7 +46,7 @@ const apiMoment = {
         name: `[BEAT BREAKDOWN] QUAY LẠI GIƯỜNG ĐI EM - HÀ LÊ | CONCERT ANH TRAI VƯỢT NGÀN CHÔNG GAI`,
         link:
           process.env.NODE_ENV === "production"
-            ? videos[`/snapifytunes/QLGIƯỜNGĐIEM-MASTAL.mp4`]
+            ? videos[`${baseName}/QLGIƯỜNGĐIEM-MASTAL.mp4`]
             : videos[`QLGIƯỜNGĐIEM-MASTAL.mp4`],
       },
     ];
