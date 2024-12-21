@@ -9,7 +9,6 @@ function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
   const [showTitle, setShowTitle] = useState(false);
 
   const videoRef = useRef(null);
-  const videoSrc = require(`../../assets/videos/${link}`);
 
   useEffect(() => {
     if (!videoRef.current) return;
@@ -32,15 +31,15 @@ function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
         <video
-          src={videoSrc}
-          type="video/mp4"
-          ref={videoRef}
           className={cx("video-player")}
+          ref={videoRef}
           controls
           controlsList="nodownload"
           onPlay={handlePlay}
           onPause={handlePause}
-        />
+        >
+          <source src={link} type="video/mp4" />
+        </video>
         {!showTitle && (
           <div className={cx("info")}>
             <h6 className={cx("date")}>{date}</h6>
