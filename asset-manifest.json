@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/snapifytunes/static/css/main.8e6e1430.css",
-    "main.js": "/snapifytunes/static/js/main.35b5a4ec.js",
+    "main.js": "/snapifytunes/static/js/main.e81f47bd.js",
     "static/js/510.e07b4e53.chunk.js": "/snapifytunes/static/js/510.e07b4e53.chunk.js",
     "static/media/GIÀUSANG-KrissNgo.mp4": "/snapifytunes/static/media/GIÀUSANG-KrissNgo.8b7f68ac36d5ec3d9e719f4603b58b0f.mp4",
     "static/media/Chị Dâu Tôi.mp3": "/snapifytunes/static/media/Chị Dâu Tôi.925a667ec92845da8b574c580009935e.mp3",
@@ -109,11 +109,11 @@
     "static/media/ProximaNovaT-Thin.woff2": "/snapifytunes/static/media/ProximaNovaT-Thin.bd087ed2c1c95fc74e2c.woff2",
     "index.html": "/snapifytunes/index.html",
     "main.8e6e1430.css.map": "/snapifytunes/static/css/main.8e6e1430.css.map",
-    "main.35b5a4ec.js.map": "/snapifytunes/static/js/main.35b5a4ec.js.map",
+    "main.e81f47bd.js.map": "/snapifytunes/static/js/main.e81f47bd.js.map",
     "510.e07b4e53.chunk.js.map": "/snapifytunes/static/js/510.e07b4e53.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8e6e1430.css",
-    "static/js/main.35b5a4ec.js"
+    "static/js/main.e81f47bd.js"
   ]
 }
