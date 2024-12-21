@@ -38,7 +38,7 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
     setActiveMemo,
   } = useAudioPlayer();
 
-  // console.log("playlistItem filter:", trackList);
+  // console.log("trackList:", trackList);
 
   const trackRefs = useRef([]);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -52,8 +52,8 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
   const value = trackList[0];
   const albumAvatar = value?.avatar;
 
-  const podcastStoredAvatar = storedTrackArray.map((a) => a.avatarAudio);
-  const podcastListAvatar = trackList.map((a) => a.avatarAudio);
+  const podcastStoredAvatar = storedTrackArray.map((a) => a.audioAvatar);
+  const podcastListAvatar = trackList.map((a) => a.audioAvatar);
 
   const yourPlaylistStoredAvatar = storedTrackArray.map((a) => a.trackAvatar);
   const yourPlaylistAvatar = trackList.map((a) => a.trackAvatar);
@@ -188,9 +188,9 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
       <div className={cx("container")}>
         {!findPlaylistItem && !trackList.length ? (
           <div className={cx("yourPlaylist-null")}>
-            <h4 className={cx("yourPlaylist-notify")}>
+            <h1 className={cx("yourPlaylist-notify")}>
               {t("playlistNull")} {""} "{yourPlaylistName}"
-            </h4>
+            </h1>
           </div>
         ) : (
           <div className={cx("tracks")}>

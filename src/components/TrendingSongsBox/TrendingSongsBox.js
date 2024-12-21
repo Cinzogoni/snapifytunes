@@ -60,7 +60,7 @@ function TrendingSongsBox({ tracks }) {
             stopIcon
             waveformBox
             //
-            trackId={track.id}
+            trackId={`trend_${track.id}`}
             trackLink={track.link}
             trackTitle={track.title}
             trackPerformer={track.stageName}

@@ -8,12 +8,26 @@
   border-bottom: var(--separation--border-layout);
 }
 
+.logo-frame {
+  width: 320px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: var(--separation--border-layout);
+  box-shadow: var(--4th--box-shadow);
+}
+
 .logo {
-  width: 60px;
-  height: 60px;
-  margin-left: 30px;
+  width: 48px;
+  height: 48px;
   border: var(--1st--border-element);
   border-radius: var(--2nd--border-radius);
+}
+
+.name {
+  font-size: 3rem;
+  margin-left: 4px;
 }
 
 .actions {
@@ -103,5 +117,23 @@
       transform: scale(1.1);
       cursor: pointer;
     }
+  }
+}
+
+@media (max-width: 1280px) {
+  .logo-frame {
+    width: unset;
+    margin-left: 30px;
+    border-right: unset;
+    box-shadow: unset;
+  }
+
+  .logo {
+    width: 28.8px;
+    height: 28.8px;
+  }
+
+  .name {
+    font-size: 1.8rem;
   }
 }

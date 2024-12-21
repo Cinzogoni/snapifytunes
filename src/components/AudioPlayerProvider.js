@@ -7,6 +7,7 @@ import React, {
 } from "react";
 
 import { useLocation } from "react-router-dom";
+import { baseName } from "~/bassName";
 
 const AudioPlayer = createContext();
 
@@ -44,9 +45,22 @@ export function AudioPlayerProvider({ children }) {
 
   const playerRefs = useRef(null);
   const location = useLocation();
-  const isAlbumPage = location.pathname.startsWith("/albumPage");
-  const isPodcastPage = location.pathname.startsWith("/podcastPage");
-  const isPlaylistPage = location.pathname.startsWith("/playlistPage");
+
+  const isAlbumPage = location.pathname.startsWith(
+    `${process.env.NODE_ENV === "production" ? baseName : ""}/albumPage`
+  );
+  const isPodcastPage = location.pathname.startsWith(
+    `${process.env.NODE_ENV === "production" ? baseName : ""}/podcastPage`
+  );
+  const isPlaylistPage = location.pathname.startsWith(
+    `${process.env.NODE_ENV === "production" ? baseName : ""}/playlistPage`
+  );
+  const isTrackPage = location.pathname.startsWith(
+    `${process.env.NODE_ENV === "production" ? baseName : ""}/track`
+  );
+  const isMusicMakerPage = location.pathname.startsWith(
+    `${process.env.NODE_ENV === "production" ? baseName : ""}/musicMakerPage`
+  );
   const currentUrl = isAlbumPage || isPodcastPage || isPlaylistPage;
 
   useEffect(() => {
@@ -70,16 +84,6 @@ export function AudioPlayerProvider({ children }) {
       return () => player.removeEventListener("timeupdate", updateTime);
     }
   }, [isPlaying]);
-
-  useEffect(() => {
-    if (isTrackEnded) {
-      if (isLooping) {
-        handleNextTrack();
-      } else {
-        setIsPlaying(false);
-      }
-    }
-  }, [isTrackEnded, isLooping]);
 
   useEffect(() => {
     // console.log("Track list: ", trackList);
@@ -149,26 +153,14 @@ export function AudioPlayerProvider({ children }) {
     }
   };
 
-  const handleTrackEnd = (trackId) => {
+  const handleTrackEnd = () => {
     const player = playerRefs.current;
     const totalDuration = player ? player.duration : 0;
 
     try {
       if (player) {
-        if (isLooping) {
-          if (!isRandom) {
-            handleNextTrack();
-            setIsPlaying(true);
-            setIsTrackEnded(false);
-            player.play();
-            // console.log("Playlist loop is active!");
-          } else if (isRandom) {
-            handleNextTrack();
-            setIsPlaying(true);
-            setIsTrackEnded(false);
-            player.play();
-            // console.log("Shuffled track list loop is active!");
-          } else {
+        if (isTrackPage || isMusicMakerPage) {
+          if (isLooping) {
             player.currentTime = 0;
             setIsPlaying(true);
             setIsTrackEnded(false);
@@ -176,25 +168,46 @@ export function AudioPlayerProvider({ children }) {
             setCheckListeningTime(0);
             player.play();
             // console.log("Single track loop is active!");
+          } else {
+            player.pause();
+            setIsPlaying(false);
+            setIsTrackEnded(true);
+            // console.log("Single track has ended!");
           }
         } else {
-          setIsPlaying(false);
-          player.currentTime = 0;
-          player.pause();
-
           const listToUse = isRandom ? shuffledTrackList : trackList;
 
-          if (trackIndex < listToUse.length - 1) {
-            handleNextTrack();
-            setIsTrackEnded(false);
-            // console.log("The track has ended in the playlist!");
+          if (listToUse.length > 0) {
+            if (isLooping) {
+              handleNextTrack();
+              setIsPlaying(true);
+              setIsTrackEnded(false);
+              player.play();
+              // console.log(
+              //   isRandom
+              //     ? "Shuffled track list loop is active!"
+              //     : "Playlist loop is active!"
+              // );
+            } else {
+              player.pause();
+              setIsPlaying(false);
+              player.currentTime = 0;
+
+              if (trackIndex < listToUse.length - 1) {
+                handleNextTrack();
+                setIsTrackEnded(false);
+                // console.log("The track has ended in the playlist!");
+              } else {
+                setIsTrackEnded(true);
+              }
+            }
           } else {
-            setIsTrackEnded(true);
+            console.log("No track list, no action taken!");
           }
         }
       }
     } catch (stt) {
-      console.log();
+      console.log(stt);
     }
 
     const percentDuration = totalDuration * 0.97;
@@ -203,21 +216,14 @@ export function AudioPlayerProvider({ children }) {
       listeningTime >= percentDuration &&
       checkListeningTime >= percentDuration
     ) {
-      //BUILDING...
-    } else {
-      // console.log(
-      //   "The stream isn't recorded because the song wasn't played fully!"
-      // );
+      // BUILDING...
     }
-    // console.log("Duration time:", percentDuration);
-    // console.log("Listen time:", listeningTime);
-    // console.log("Check time:", checkListeningTime);
   };
 
   const handleLoop = () => {
     setIsLooping((prevIsLooping) => {
       const newIsLooping = !prevIsLooping;
-      // console.log(`Looping is now ${newIsLooping ? "enabled" : "disabled"}.`);
+      console.log(`Looping is now ${newIsLooping ? "enabled" : "disabled"}.`);
       return newIsLooping;
     });
   };
@@ -373,7 +379,7 @@ export function AudioPlayerProvider({ children }) {
       }}
     >
       {children}
-      <audio ref={playerRefs} onEnded={() => handleTrackEnd(currentTrackId)}>
+      <audio ref={playerRefs} onEnded={handleTrackEnd}>
         <source src={trackLink} type="audio/wav" />
       </audio>
     </AudioPlayer.Provider>

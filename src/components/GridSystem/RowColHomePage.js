@@ -26,7 +26,7 @@ function RowColHomePage({ element1, element2, items }) {
                 colMo={cx("mo-6")}
               >
                 {React.cloneElement(element2, {
-                  trackId: item.id,
+                  trackId: `new_${item.id}`,
                   trackLink: item.link,
                   trackAvatar: item.avatar || item.albumAvatar,
                   trackTitle: item.title,
@@ -36,7 +36,7 @@ function RowColHomePage({ element1, element2, items }) {
                   releaseDay: item.releaseDay,
                   streamed: item.streamed,
                   //Music Maker
-                  Id: item.id,
+                  id: item.id,
                   makerAvatar: item.makerAvatar,
                   makerName: item.makerName,
                   role: item.role,
@@ -46,7 +46,7 @@ function RowColHomePage({ element1, element2, items }) {
                   albumName: item.albumName,
                   albumPerformer: item.albumPerformer,
                   //Podcast
-                  podcastId: item.id,
+                  podcastId: `pod_${item.id}`,
                   podcastAvatar: item.avatar,
                   podcastTopic: item.topic,
                   podcastDescription: item.description,

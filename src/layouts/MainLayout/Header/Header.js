@@ -69,7 +69,10 @@ function Header() {
 
   return (
     <div className={cx("wrapper")}>
-      <img className={cx("logo")} src={logo} alt="Logo" />
+      <div className={cx("logo-frame")}>
+        <img className={cx("logo")} src={logo} alt="Logo" />
+        <h1 className={cx("name")}>SnapifyTunes</h1>
+      </div>
       {currentUser ? (
         <HeaderActions />
       ) : (

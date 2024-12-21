@@ -31,15 +31,15 @@ function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
         <video
+          src={link}
+          type="video/mp4"
           ref={videoRef}
           className={cx("video-player")}
           controls
           controlsList="nodownload"
           onPlay={handlePlay}
           onPause={handlePause}
-        >
-          <source src={link} type="video/mp4" />
-        </video>
+        />
         {!showTitle && (
           <div className={cx("info")}>
             <h6 className={cx("date")}>{date}</h6>

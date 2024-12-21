@@ -50,19 +50,21 @@ function NewReleasesBox({
       />
 
       <div className={cx("player")}>
-        <img className={cx("avatar")} src={trackAvatar} alt={trackTitle} />
+        <div className={cx("frame")}>
+          <img className={cx("avatar")} src={trackAvatar} alt={trackTitle} />
 
-        <Player
-          trackId={trackId}
-          trackLink={trackLink}
-          trackTitle={trackTitle}
-          trackPerformer={trackPerformer}
-          trackType={trackType}
-          //
-          isStatus={trackId === currentTrackId && isPlaying}
-          onPlay={handlePlayTrack}
-          onPause={() => handlePause(trackId)}
-        />
+          <Player
+            trackId={trackId}
+            trackLink={trackLink}
+            trackTitle={trackTitle}
+            trackPerformer={trackPerformer}
+            trackType={trackType}
+            //
+            isStatus={trackId === currentTrackId && isPlaying}
+            onPlay={handlePlayTrack}
+            onPause={() => handlePause(trackId)}
+          />
+        </div>
 
         <div className={cx("menu")}>
           <div className={cx("streams")}>
