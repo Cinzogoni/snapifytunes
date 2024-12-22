@@ -11,7 +11,7 @@ module.exports = override(
         loader: "file-loader",
         options: {
           name: "static/media/videos/[name].[contenthash].[ext]",
-          publicPath: "/snapifytunes/static/media/videos/",
+          publicPath: "/static/media/videos/",
         },
       },
     ],
