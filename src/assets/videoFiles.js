@@ -5,10 +5,7 @@ const videoFiles = videos.keys().reduce((acc, filePath) => {
   const videoUrl = videos(filePath);
 
   acc[fileName] = {
-    default:
-      process.env.NODE_ENV === "production"
-        ? `/snapifytunes/static/media/videos/${encodeURIComponent(fileName)}`
-        : videoUrl.default,
+    default: videoUrl.default,
   };
 
   return acc;
