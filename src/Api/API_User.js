@@ -21,6 +21,12 @@ const API_USER = {
       yourPlaylist: [
         { yourPlaylistName: "", yourPlaylistDescription: "", audioTracks: [] },
       ],
+      hobbies: [
+        {
+          hobbyMoods: [],
+          hobbyGenres: [],
+        },
+      ],
     },
     {
       id: "user2",
@@ -42,6 +48,12 @@ const API_USER = {
       ],
       yourPlaylist: [
         { yourPlaylistName: "", yourPlaylistDescription: "", audioTracks: [] },
+      ],
+      hobbies: [
+        {
+          hobbyMoods: [],
+          hobbyGenres: [],
+        },
       ],
     },
     {
@@ -65,6 +77,12 @@ const API_USER = {
       yourPlaylist: [
         { yourPlaylistName: "", yourPlaylistDescription: "", audioTracks: [] },
       ],
+      hobbies: [
+        {
+          hobbyMoods: [],
+          hobbyGenres: [],
+        },
+      ],
     },
     {
       id: "user4",
@@ -87,6 +105,12 @@ const API_USER = {
       yourPlaylist: [
         { yourPlaylistName: "", yourPlaylistDescription: "", audioTracks: [] },
       ],
+      hobbies: [
+        {
+          hobbyMoods: [],
+          hobbyGenres: [],
+        },
+      ],
     },
     {
       id: "user5",
@@ -108,6 +132,12 @@ const API_USER = {
       ],
       yourPlaylist: [
         { yourPlaylistName: "", yourPlaylistDescription: "", audioTracks: [] },
+      ],
+      hobbies: [
+        {
+          hobbyMoods: [],
+          hobbyGenres: [],
+        },
       ],
     },
   ],
