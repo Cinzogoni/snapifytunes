@@ -24,7 +24,16 @@ const API_USER = {
       hobbies: [
         {
           hobbyMoods: [],
-          hobbyGenres: [],
+          hobbyGenres: [
+            {
+              hobbyHipHop: [],
+              hobbyRnB: [],
+              hobbyPop: [],
+              hobbyDance: [],
+              hobbyHouse: [],
+              hobbyBallad: [],
+            },
+          ],
         },
       ],
     },
@@ -52,7 +61,7 @@ const API_USER = {
       hobbies: [
         {
           hobbyMoods: [],
-          hobbyGenres: [],
+          hobbyGenres: [{ hobbyRapHipHop: [] }],
         },
       ],
     },
@@ -80,7 +89,7 @@ const API_USER = {
       hobbies: [
         {
           hobbyMoods: [],
-          hobbyGenres: [],
+          hobbyGenres: [{ hobbyRapHipHop: [] }],
         },
       ],
     },
@@ -108,7 +117,7 @@ const API_USER = {
       hobbies: [
         {
           hobbyMoods: [],
-          hobbyGenres: [],
+          hobbyGenres: [{ hobbyRapHipHop: [] }],
         },
       ],
     },
@@ -136,7 +145,7 @@ const API_USER = {
       hobbies: [
         {
           hobbyMoods: [],
-          hobbyGenres: [],
+          hobbyGenres: [{ hobbyRapHipHop: [] }],
         },
       ],
     },
