@@ -1,13 +1,22 @@
 import classNames from "classnames/bind";
 import styles from "./MomentBox.module.scss";
 
-import { useState } from "react";
-import ReactPlayer from "react-player";
+import { useEffect, useRef, useState } from "react";
 
 const cx = classNames.bind(styles);
 
 function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
   const [showTitle, setShowTitle] = useState(false);
+
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (!videoRef.current) return;
+
+    if (!isVideoPlaying && videoRef.current) {
+      videoRef.current.pause();
+    }
+  }, [isVideoPlaying]);
 
   const handlePlay = () => {
     onPlay(id);
@@ -18,25 +27,27 @@ function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
     setShowTitle(false);
   };
 
+  console.log("link:", link);
+
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
+        <video
+          className={cx("video-player")}
+          ref={videoRef}
+          controls
+          controlsList="nodownload"
+          onPlay={handlePlay}
+          onPause={handlePause}
+        >
+          <source src={link} type="video/mp4" />
+        </video>
         {!showTitle && (
           <div className={cx("info")}>
             <h6 className={cx("date")}>{date}</h6>
             <h6 className={cx("title")}>{name}</h6>
           </div>
         )}
-        <ReactPlayer
-          url={link}
-          playing={isVideoPlaying}
-          controls
-          controlsList="nodownload"
-          onPlay={handlePlay}
-          onPause={handlePause}
-          width="100%"
-          height="100%"
-        />
       </div>
     </div>
   );
