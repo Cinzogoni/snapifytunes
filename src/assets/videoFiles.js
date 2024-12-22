@@ -7,7 +7,7 @@ const videoFiles = videos.keys().reduce((acc, filePath) => {
   acc[fileName] = {
     default:
       process.env.NODE_ENV === "production"
-        ? `/static/media/videos/${fileName}`
+        ? `${process.env.REACT_APP_PRO_ENV}/static/media/videos/${fileName}`
         : videoUrl.default,
   };
 
