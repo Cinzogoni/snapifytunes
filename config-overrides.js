@@ -11,7 +11,7 @@ module.exports = override(
         loader: "file-loader",
         options: {
           name: "static/media/videos/[name].[contenthash].[ext]",
-          emitFile: true,
+          publicPath: "/static/media/videos/",
         },
       },
     ],
