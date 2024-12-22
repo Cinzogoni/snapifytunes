@@ -27,7 +27,7 @@ function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
     setShowTitle(false);
   };
 
-  console.log("link:", link);
+  // console.log("link:", link);
 
   return (
     <div className={cx("wrapper")}>

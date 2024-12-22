@@ -10,7 +10,7 @@ module.exports = override(
       {
         loader: "file-loader",
         options: {
-          name: "static/media/[name].[contenthash].[ext]",
+          name: "static/media/videos/[name].[contenthash].[ext]",
         },
       },
     ],
