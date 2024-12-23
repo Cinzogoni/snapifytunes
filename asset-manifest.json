@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/snapifytunes/static/css/main.f18e313f.css",
+    "main.css": "/snapifytunes/static/css/main.e41c4b94.css",
     "main.js": "/snapifytunes/static/js/main.f773ff01.js",
     "reactPlayerYouTube.js": "/snapifytunes/static/js/reactPlayerYouTube.7cb33189.chunk.js",
     "reactPlayerSoundCloud.js": "/snapifytunes/static/js/reactPlayerSoundCloud.a7315f5c.chunk.js",
@@ -117,7 +117,7 @@
     "static/media/ProximaNova-Extrabld.woff2": "/snapifytunes/static/media/ProximaNova-Extrabld.51e73062e691a23fb801.woff2",
     "static/media/ProximaNovaT-Thin.woff2": "/snapifytunes/static/media/ProximaNovaT-Thin.bd087ed2c1c95fc74e2c.woff2",
     "index.html": "/snapifytunes/index.html",
-    "main.f18e313f.css.map": "/snapifytunes/static/css/main.f18e313f.css.map",
+    "main.e41c4b94.css.map": "/snapifytunes/static/css/main.e41c4b94.css.map",
     "main.f773ff01.js.map": "/snapifytunes/static/js/main.f773ff01.js.map",
     "reactPlayerYouTube.7cb33189.chunk.js.map": "/snapifytunes/static/js/reactPlayerYouTube.7cb33189.chunk.js.map",
     "reactPlayerSoundCloud.a7315f5c.chunk.js.map": "/snapifytunes/static/js/reactPlayerSoundCloud.a7315f5c.chunk.js.map",
@@ -136,7 +136,7 @@
     "845.6eb8b833.chunk.js.map": "/snapifytunes/static/js/845.6eb8b833.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f18e313f.css",
+    "static/css/main.e41c4b94.css",
     "static/js/main.f773ff01.js"
   ]
 }
