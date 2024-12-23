@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/snapifytunes/static/css/main.841add0b.css",
-    "main.js": "/snapifytunes/static/js/main.c8c7be51.js",
+    "main.css": "/snapifytunes/static/css/main.f158835f.css",
+    "main.js": "/snapifytunes/static/js/main.a21120fa.js",
     "reactPlayerYouTube.js": "/snapifytunes/static/js/reactPlayerYouTube.7cb33189.chunk.js",
     "reactPlayerSoundCloud.js": "/snapifytunes/static/js/reactPlayerSoundCloud.a7315f5c.chunk.js",
     "reactPlayerVimeo.js": "/snapifytunes/static/js/reactPlayerVimeo.626c4582.chunk.js",
@@ -117,8 +117,8 @@
     "static/media/ProximaNova-Extrabld.woff2": "/snapifytunes/static/media/ProximaNova-Extrabld.51e73062e691a23fb801.woff2",
     "static/media/ProximaNovaT-Thin.woff2": "/snapifytunes/static/media/ProximaNovaT-Thin.bd087ed2c1c95fc74e2c.woff2",
     "index.html": "/snapifytunes/index.html",
-    "main.841add0b.css.map": "/snapifytunes/static/css/main.841add0b.css.map",
-    "main.c8c7be51.js.map": "/snapifytunes/static/js/main.c8c7be51.js.map",
+    "main.f158835f.css.map": "/snapifytunes/static/css/main.f158835f.css.map",
+    "main.a21120fa.js.map": "/snapifytunes/static/js/main.a21120fa.js.map",
     "reactPlayerYouTube.7cb33189.chunk.js.map": "/snapifytunes/static/js/reactPlayerYouTube.7cb33189.chunk.js.map",
     "reactPlayerSoundCloud.a7315f5c.chunk.js.map": "/snapifytunes/static/js/reactPlayerSoundCloud.a7315f5c.chunk.js.map",
     "reactPlayerVimeo.626c4582.chunk.js.map": "/snapifytunes/static/js/reactPlayerVimeo.626c4582.chunk.js.map",
@@ -136,7 +136,7 @@
     "845.6eb8b833.chunk.js.map": "/snapifytunes/static/js/845.6eb8b833.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.841add0b.css",
-    "static/js/main.c8c7be51.js"
+    "static/css/main.f158835f.css",
+    "static/js/main.a21120fa.js"
   ]
 }
