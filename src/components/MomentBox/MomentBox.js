@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./MomentBox.module.scss";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 import ReactPlayer from "react-player";
 
@@ -9,16 +9,6 @@ const cx = classNames.bind(styles);
 
 function MomentBox({ id, link, date, name, onPlay, onPause, isVideoPlaying }) {
   const [showTitle, setShowTitle] = useState(false);
-
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    if (!videoRef.current) return;
-
-    if (!isVideoPlaying && videoRef.current) {
-      videoRef.current.pause();
-    }
-  }, [isVideoPlaying]);
 
   const handlePlay = () => {
     onPlay(id);
@@ -38,6 +28,7 @@ function MomentBox({ id, link, date, name, onPlay, onPause, isVideoPlaying }) {
           width="100%"
           height="100%"
           controls={true}
+          playing={isVideoPlaying}
           onPlay={handlePlay}
           onPause={handlePause}
         />
