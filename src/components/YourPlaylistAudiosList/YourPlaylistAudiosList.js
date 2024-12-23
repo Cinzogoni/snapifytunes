@@ -118,8 +118,6 @@ function YourPlaylistAudiosList({ audioList, playlistIndex }) {
     // console.log("AlbumList storedAudiosMap:", storedAudiosMap);
   }, [storedAudiosMap]);
 
-  console.log(displayTrackList);
-
   const handleTrackPlay = (track) => {
     if (!storedAudiosMap) {
       setStoredTrackListMap(new Map());
