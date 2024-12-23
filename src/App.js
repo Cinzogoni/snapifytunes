@@ -43,8 +43,6 @@ function AppProviders({ children }) {
 
 function App() {
   // console.log("ENV:", process.env.NODE_ENV);
-  // console.log("DEV ENV:", process.env.REACT_APP_DEV_ENV);
-  // console.log("PRO ENV:", process.env.REACT_APP_PRO_ENV);
   // console.log("Base name:", baseName);
   // console.log("publicRouter:", publicRouter);
 
