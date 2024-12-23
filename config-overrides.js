@@ -1,7 +1,19 @@
-const { override, useBabelRc } = require("customize-cra");
+const { override, useBabelRc, addWebpackModuleRule } = require("customize-cra");
 
 module.exports = override(
   useBabelRc(),
+
+  addWebpackModuleRule({
+    test: /\.(mp4|webm|ogg)$/i,
+    use: [
+      {
+        loader: "file-loader",
+        options: {
+          name: "media/[name].[hash:8].[ext]",
+        },
+      },
+    ],
+  }),
 
   (config) => {
     config.resolve.alias = {

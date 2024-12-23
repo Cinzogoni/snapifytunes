@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 const cx = classNames.bind(styles);
 
-function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
+function MomentBox({ id, link, date, name, onPlay, onPause, isVideoPlaying }) {
   const [showTitle, setShowTitle] = useState(false);
 
   const videoRef = useRef(null);
@@ -24,6 +24,7 @@ function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
   };
 
   const handlePause = () => {
+    onPause();
     setShowTitle(false);
   };
 
