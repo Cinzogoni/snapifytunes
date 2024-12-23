@@ -1,19 +1,25 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-const { override, useBabelRc, addWebpackModuleRule } = require("customize-cra");
+const { override, useBabelRc } = require("customize-cra");
 
 module.exports = override(
   useBabelRc(),
-  // Bổ sung file-loader để xử lý các tệp video
-  addWebpackModuleRule({
-    test: /\.(mp4|webm|ogg)$/,
-    use: [
-      {
-        loader: "file-loader",
-        options: {
-          name: "[name].[contenthash].[ext]",
-          outputPath: `static/media/videos`,
-        },
-      },
-    ],
-  })
+
+  (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      svgo: "svgo@latest",
+      "nth-check": "nth-check@latest",
+      postcss: "postcss@latest",
+      "resolve-url-loader": "resolve-url-loader@latest",
+    };
+
+    const plugins = config.plugins.map((plugin) => {
+      if (plugin.constructor.name === "MiniCssExtractPlugin") {
+        plugin.options.ignoreOrder = true;
+      }
+      return plugin;
+    });
+    config.plugins = plugins;
+
+    return config;
+  }
 );

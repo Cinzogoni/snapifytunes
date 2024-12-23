@@ -27,25 +27,18 @@ function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
     setShowTitle(false);
   };
 
-  const productionLink = `${process.env.PUBLIC_URL}${
-    link.startsWith("/snapifytunes") ? link.replace("/snapifytunes", "") : link
-  }`;
-
-  console.log("link:", link);
-  console.log("production link:", productionLink);
-
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
         <video
-          src={process.env.NODE_ENV === "production" ? productionLink : link}
+          src={link}
           className={cx("video-player")}
           ref={videoRef}
           controls
           controlsList="nodownload"
           onPlay={handlePlay}
           onPause={handlePause}
-        ></video>
+        />
         {!showTitle && (
           <div className={cx("info")}>
             <h6 className={cx("date")}>{date}</h6>
