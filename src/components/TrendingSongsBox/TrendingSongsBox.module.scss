@@ -33,6 +33,8 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
+
+  overflow: hidden;
 }
 
 .link {
@@ -45,12 +47,18 @@
 .title {
   font-size: 1.4rem;
   margin: 1.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .performer {
   font-size: 1.3rem;
   margin: 1.5px;
   opacity: 0.6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .menu {
