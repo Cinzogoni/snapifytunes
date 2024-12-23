@@ -4,9 +4,7 @@ const videoFiles = videos.keys().reduce((acc, filePath) => {
   const fileName = filePath.replace("./", "");
   const videoUrl = videos(filePath);
 
-  acc[fileName] = {
-    default: videoUrl.default,
-  };
+  acc[fileName] = videoUrl;
 
   return acc;
 }, {});

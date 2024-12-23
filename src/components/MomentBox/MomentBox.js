@@ -27,7 +27,12 @@ function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
     setShowTitle(false);
   };
 
-  // console.log("link:", link);
+  const productionLink = `${process.env.PUBLIC_URL}${
+    link.startsWith("/static/media/videos/") ? link : ""
+  }`;
+
+  console.log("link:", link);
+  console.log("production link:", productionLink);
 
   return (
     <div className={cx("wrapper")}>
@@ -41,11 +46,7 @@ function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
           onPause={handlePause}
         >
           <source
-            src={
-              process.env.NODE === "production"
-                ? `${process.env.PUBLIC_URL}/${link}`
-                : link
-            }
+            src={process.env.NODE_ENV === "production" ? productionLink : link}
             type="video/mp4"
           />
         </video>
