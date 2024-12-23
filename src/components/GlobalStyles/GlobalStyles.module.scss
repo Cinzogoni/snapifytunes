@@ -55,10 +55,12 @@
   --border--radius-rounded-corners: 20px;
 
   //Shadow
-  --1st--box-shadow: 0px 2px 12px rgba(255, 255, 255, 0.15);
-  --2nd--box-shadow: 4px 4px 3px rgba(200, 200, 200, 0.8);
-  --3rd--box-shadow: 4px 4px 1.5px rgba(19, 18, 18, 0.8);
-  --4th--box-shadow: -10px 0px 23px rgba(200, 200, 200, 0.8);
+  --1st-shadow: 0px 2px 12px rgba(255, 255, 255, 0.15);
+  --2nd-shadow: 4px 4px 3px rgba(200, 200, 200, 0.8);
+  --3rd-shadow: 4px 4px 1.5px rgba(19, 18, 18, 0.8);
+  --4th-shadow: -10px 0px 23px rgba(200, 200, 200, 0.8);
+  --5th-shadow: 0px 0px 20px rgba(200, 200, 200, 0.8);
+  --6th-shadow: 0px -7px 8px rgb(83 83 83 / 30%);
 }
 
 * {
