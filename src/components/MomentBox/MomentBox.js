@@ -3,6 +3,8 @@ import styles from "./MomentBox.module.scss";
 
 import { useEffect, useRef, useState } from "react";
 
+import ReactPlayer from "react-player";
+
 const cx = classNames.bind(styles);
 
 function MomentBox({ id, link, date, name, onPlay, onPause, isVideoPlaying }) {
@@ -31,21 +33,21 @@ function MomentBox({ id, link, date, name, onPlay, onPause, isVideoPlaying }) {
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
-        <video
-          src={link}
-          className={cx("video-player")}
-          ref={videoRef}
-          controls
-          controlsList="nodownload"
+        <ReactPlayer
+          url={link}
+          width="100%"
+          height="100%"
+          controls={true}
           onPlay={handlePlay}
           onPause={handlePause}
         />
-        {!showTitle && (
+
+        {/* {!showTitle && (
           <div className={cx("info")}>
             <h6 className={cx("date")}>{date}</h6>
             <h6 className={cx("title")}>{name}</h6>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
