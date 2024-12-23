@@ -1,5 +1,9 @@
 const getVideoLink = (videoName) => {
-  return `${process.env.PUBLIC_URL}/videos/${videoName}`;
+  if (process.env.NODE_ENV === "production") {
+    return `/snapifytunes/videos/${videoName}`;
+  } else {
+    return `${process.env.PUBLIC_URL}/videos/${videoName}`;
+  }
 };
 
 const apiMoment = {
