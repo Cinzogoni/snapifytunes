@@ -28,7 +28,7 @@ function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
   };
 
   const productionLink = `${process.env.PUBLIC_URL}${
-    link.startsWith("/static/media/videos/") ? link : ""
+    link.startsWith("/snapifytunes") ? link.replace("/snapifytunes", "") : link
   }`;
 
   console.log("link:", link);
