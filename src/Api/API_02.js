@@ -1,9 +1,5 @@
 const getVideoLink = (videoName) => {
-  if (process.env.NODE_ENV === "production") {
-    return `/videos/${videoName}`;
-  } else {
-    return `${process.env.PUBLIC_URL}/videos/${videoName}`;
-  }
+  return `${process.env.PUBLIC_URL}/videos/${videoName}`;
 };
 
 const apiMoment = {
