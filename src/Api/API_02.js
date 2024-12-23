@@ -1,16 +1,8 @@
-const videos = require.context("../assets/videos", false, /\.(mp4|webm|ogg)$/);
-
-const videoFiles = videos.keys().reduce((acc, filePath) => {
-  const fileName = filePath.replace("./", "");
-  acc[fileName] = videos(filePath);
-  return acc;
-}, {});
-
 const getVideoLink = (videoName) => {
   if (process.env.NODE_ENV === "production") {
-    return `${process.env.PUBLIC_URL}/videos/${videoName}`;
+    return `/videos/${videoName}`;
   } else {
-    return videoFiles[videoName];
+    return `${process.env.PUBLIC_URL}/videos/${videoName}`;
   }
 };
 
