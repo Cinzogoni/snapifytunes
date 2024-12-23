@@ -71,3 +71,10 @@
 .fixPosition {
   transform: translateY(303px);
 }
+
+@media (max-width: 630px) {
+  .frame {
+    max-height: unset;
+    height: 320px;
+  }
+}

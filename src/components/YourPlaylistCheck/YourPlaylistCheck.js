@@ -50,7 +50,13 @@ function YourPlaylistCheck({
 
   return (
     <Tippy
-      placement={showNewReleasesNotify ? "top" : "right"}
+      placement={
+        window.innerWidth <= 630
+          ? "top"
+          : showNewReleasesNotify
+          ? "top"
+          : "right"
+      }
       interactive
       appendTo={document.body}
       visible={isNewReleasesVisible === trackId}

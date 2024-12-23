@@ -10,8 +10,7 @@ audio {
   flex-direction: column;
   align-items: center;
   position: absolute;
-  bottom: -22px;
-  top: 0;
+  bottom: 65px;
 }
 
 .library {
@@ -245,6 +244,7 @@ audio {
 
 // Trending Songs
 .frameResize {
+  bottom: 0;
   width: 50px;
   height: 50px;
   display: flex;
@@ -253,6 +253,7 @@ audio {
 }
 
 .frameFix {
+  bottom: 0;
   width: 40px;
   height: 40px;
   display: flex;
@@ -503,8 +504,8 @@ audio {
 }
 
 .randomTrack-bg {
-  width: 38px;
-  height: 38px;
+  width: 33px;
+  height: 33px;
   margin: 0 2px;
   border-radius: 999px;
   display: flex;
@@ -804,7 +805,7 @@ audio {
 //Your Playlist
 .frameYourPlaylist {
   left: -5px;
-  bottom: 0;
+  top: 5;
 }
 
 .playerYourPlaylist {

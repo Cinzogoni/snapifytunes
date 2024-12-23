@@ -61,3 +61,9 @@
 .positionFix {
   transform: translate(-90px, 7px);
 }
+
+@media (max-width: 429px) {
+  .frame {
+    display: none;
+  }
+}
