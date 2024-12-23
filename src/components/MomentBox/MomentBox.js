@@ -40,7 +40,14 @@ function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
           onPlay={handlePlay}
           onPause={handlePause}
         >
-          <source src={link} type="video/mp4" />
+          <source
+            src={
+              process.env.NODE === "production"
+                ? `${process.env.PUBLIC_URL}/${link}`
+                : link
+            }
+            type="video/mp4"
+          />
         </video>
         {!showTitle && (
           <div className={cx("info")}>
