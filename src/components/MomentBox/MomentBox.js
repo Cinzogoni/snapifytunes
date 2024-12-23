@@ -38,18 +38,14 @@ function MomentBox({ id, link, date, name, onPlay, isVideoPlaying }) {
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
         <video
+          src={process.env.NODE_ENV === "production" ? productionLink : link}
           className={cx("video-player")}
           ref={videoRef}
           controls
           controlsList="nodownload"
           onPlay={handlePlay}
           onPause={handlePause}
-        >
-          <source
-            src={process.env.NODE_ENV === "production" ? productionLink : link}
-            type="video/mp4"
-          />
-        </video>
+        ></video>
         {!showTitle && (
           <div className={cx("info")}>
             <h6 className={cx("date")}>{date}</h6>

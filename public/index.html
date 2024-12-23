@@ -9,6 +9,13 @@
       name="keywords"
       content="music player, streaming, artist, listening, snapifytunes"
     />
+
+    <!-- Meta Robots -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://Cinzogoni.github.io/snapifytunes" />
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="SnapifyTunes - Web Player" />
     <meta
@@ -23,7 +30,7 @@
     />
 
     <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="%PUBLIC_URL%/social.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SnapifyTunes - Web Player" />
     <meta
       name="twitter:description"
@@ -34,15 +41,36 @@
       content="https://Cinzogoni.github.io/snapifytunes"
     />
     <meta name="twitter:image" content="%PUBLIC_URL%/social.png" />
+    <meta name="twitter:creator" content="@Cinzogoni" />
+    <meta name="referrer" content="no-referrer" />
 
-    <!-- Add the base tag here -->
-    <base href="%PUBLIC_URL%" />
-
+    <!-- Favicon and Apple Touch Icon -->
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/social.png" />
+
+    <!-- Web App Manifest -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
+    <!-- Title of the page -->
     <title>SnapifyTunes - Web Player</title>
+
+    <!-- Structured Data for SEO (Schema.org) -->
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebApplication",
+        "name": "SnapifyTunes",
+        "url": "https://Cinzogoni.github.io/snapifytunes",
+        "description": "SnapifyTunes - Easier Music Listening",
+        "publisher": {
+          "@type": "Organization",
+          "name": "SnapifyTunes"
+        },
+        "image": "%PUBLIC_URL%/social.png",
+        "keywords": "music player, streaming, artist, listening, snapifytunes",
+        "sameAs": "https://Cinzogoni.github.io/snapifytunes"
+      }
+    </script>
   </head>
 
   <body>
