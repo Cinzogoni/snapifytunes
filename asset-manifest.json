@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/snapifytunes/static/css/main.1584f680.css",
-    "main.js": "/snapifytunes/static/js/main.deee41d5.js",
+    "main.js": "/snapifytunes/static/js/main.2f0bab52.js",
     "static/js/845.6eb8b833.chunk.js": "/snapifytunes/static/js/845.6eb8b833.chunk.js",
     "static/media/Chị Dâu Tôi.mp3": "/snapifytunes/static/media/Chị Dâu Tôi.925a667ec92845da8b57.mp3",
     "static/media/비비 BIBI  가면무도회 Animal Farm.mp3": "/snapifytunes/static/media/비비 BIBI  가면무도회 Animal Farm.8c627c211d6581100947.mp3",
@@ -104,11 +104,11 @@
     "static/media/ProximaNovaT-Thin.woff2": "/snapifytunes/static/media/ProximaNovaT-Thin.bd087ed2c1c95fc74e2c.woff2",
     "index.html": "/snapifytunes/index.html",
     "main.1584f680.css.map": "/snapifytunes/static/css/main.1584f680.css.map",
-    "main.deee41d5.js.map": "/snapifytunes/static/js/main.deee41d5.js.map",
+    "main.2f0bab52.js.map": "/snapifytunes/static/js/main.2f0bab52.js.map",
     "845.6eb8b833.chunk.js.map": "/snapifytunes/static/js/845.6eb8b833.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1584f680.css",
-    "static/js/main.deee41d5.js"
+    "static/js/main.2f0bab52.js"
   ]
 }
