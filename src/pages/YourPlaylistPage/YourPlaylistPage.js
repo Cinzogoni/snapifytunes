@@ -3,13 +3,13 @@ import YourPlaylistAudiosList from "~/components/YourPlaylistAudiosList";
 import YourPlaylistInfo from "~/components/YourPlaylistInfo";
 
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { useYourPlaylist } from "~/components/YourPlaylistProvider";
 import { useUser } from "~/components/UserProvider";
 
 function YourPlaylistPage() {
-  const { userName, yourPlaylistName } = useUser();
+  const { userName, yourPlaylistName } = useParams();
   const { currentUser } = useUser();
   const { playlistItem } = useYourPlaylist();
 

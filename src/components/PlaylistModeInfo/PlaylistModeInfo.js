@@ -11,8 +11,12 @@ import { useTranslation } from "react-i18next";
 
 function PlaylistModeInfo({ defaultTitle }) {
   const { t } = useTranslation();
-  const { handleMemo, activeMemo, storedTrackListMap, trackList } =
-    useAudioPlayer();
+  const {
+    handleStoredAudiosMap,
+    storedAudiosMap,
+    storedTrackListMap,
+    trackList,
+  } = useAudioPlayer();
   const storedTrackArray = Array.from(storedTrackListMap.values()).flatMap(
     (item) => item.trackList
   );
@@ -22,7 +26,7 @@ function PlaylistModeInfo({ defaultTitle }) {
 
   useEffect(() => {
     // console.log(trackList);
-  }, [trackList, storedTrackArray, activeMemo]);
+  }, [trackList, storedTrackArray, storedAudiosMap]);
 
   return (
     <div className={cx("wrapper")}>
@@ -31,7 +35,7 @@ function PlaylistModeInfo({ defaultTitle }) {
           <h1 className={cx("title")}>
             {!defaultTitle
               ? `${t("playlistModeCurrent")}: ${t("playlistNameNull")}`
-              : activeMemo
+              : storedAudiosMap
               ? `${t("playlistModePinned")}: ${activeTitle}`
               : `${t("playlistModeCurrent")}: ${defaultTitle}`}
           </h1>
@@ -40,12 +44,12 @@ function PlaylistModeInfo({ defaultTitle }) {
         <div className={cx("action")}>
           <div
             className={cx("bg")}
-            onClick={handleMemo}
+            onClick={handleStoredAudiosMap}
             style={{
-              backgroundColor: activeMemo
+              backgroundColor: storedAudiosMap
                 ? "rgba(255, 255, 255, 1)"
                 : "transparent",
-              backgroundImage: activeMemo
+              backgroundImage: storedAudiosMap
                 ? "linear-gradient(to top, rgba(102, 128, 150, 0.1) 30%, rgba(58, 123, 189, 0.2) 50%, rgba(145, 187, 229, 0.1) 100%)"
                 : undefined,
             }}
@@ -54,7 +58,7 @@ function PlaylistModeInfo({ defaultTitle }) {
               className={cx("memo")}
               icon={faThumbTack}
               style={{
-                color: activeMemo
+                color: storedAudiosMap
                   ? "rgb(12, 12, 20)"
                   : "rgba(255, 255, 255, 1)",
               }}

@@ -113,6 +113,7 @@ const Player = ({
   stopperPodcastList,
   //Your Playlist
   frameYourPlaylist,
+  playerYourPlaylist,
 }) => {
   const {
     playerRefs,
@@ -528,7 +529,8 @@ const Player = ({
           { playerSingleTracks },
           { playerAlbumInfoResize },
           { playerPodcastList },
-          { playerFix }
+          { playerFix },
+          { playerYourPlaylist }
         )}
       >
         {isStatus && !isTrackEnded && (

@@ -26,6 +26,9 @@ function AudioPlayer() {
     setActiveLoopClick,
     activeRandomClick,
     setActiveRandomClick,
+    isRandom,
+    setIsRandom,
+    currentUrl,
   } = useAudioPlayer();
   const { t } = useTranslation();
 

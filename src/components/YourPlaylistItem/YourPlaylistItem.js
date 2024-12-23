@@ -4,13 +4,13 @@ const cx = classNames.bind(styles);
 
 import defaultAvatar from "~/assets/images/avatar/DefaultAvatar.png";
 
-import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePen, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { useYourPlaylist } from "../YourPlaylistProvider";
+import { useAudioPlayer } from "../AudioPlayerProvider";
 
 import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
@@ -28,6 +28,9 @@ function YourPlaylistItem({
   streamed,
 }) {
   const { t } = useTranslation();
+
+  const { setIsRandom, setActiveRandomClick, setShuffledTrackList } =
+    useAudioPlayer();
 
   const {
     handleDeletePlaylistItem,
@@ -148,6 +151,11 @@ function YourPlaylistItem({
                       item.yourPlaylistName?.replace(/\//g, "-") ||
                         "defaultPlaylistName"
                     )}
+                  onClick={() => {
+                    setIsRandom(false);
+                    setActiveRandomClick(true);
+                    setShuffledTrackList([]);
+                  }}
                 />
 
                 <h5 className={cx("title")}>{item.yourPlaylistName}</h5>

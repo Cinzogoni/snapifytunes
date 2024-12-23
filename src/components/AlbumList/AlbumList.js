@@ -37,8 +37,8 @@ function AlbumList({ trackList, avatar }) {
     setShuffledTrackList,
     shuffledTrackList,
     setStoredTrackListMap,
-    activeMemo,
-    setActiveMemo,
+    storedAudiosMap,
+    setStoredAudiosMap,
   } = useAudioPlayer();
 
   const trackRefs = useRef([]);
@@ -70,6 +70,8 @@ function AlbumList({ trackList, avatar }) {
       if (isRandom) {
         const shuffledList = shuffleArray(trackList);
         setShuffledTrackList(shuffledList);
+      } else {
+        setShuffledTrackList([]);
       }
     }
   }, [trackList, isRandom, setTrackList, setShuffledTrackList]);
@@ -107,15 +109,15 @@ function AlbumList({ trackList, avatar }) {
   }, [currentTrackId, displayTrackList, setTrackIndex]);
 
   useEffect(() => {
-    if (!activeMemo) {
-      setActiveMemo(false);
+    if (!storedAudiosMap) {
+      setStoredAudiosMap(false);
     }
 
-    // console.log("AlbumList activeMemo:", activeMemo);
-  }, [activeMemo]);
+    // console.log("AlbumList storedAudiosMap:", storedAudiosMap);
+  }, [storedAudiosMap]);
 
   const handleTrackPlay = (track) => {
-    if (!activeMemo) {
+    if (!storedAudiosMap) {
       setStoredTrackListMap(new Map());
       setTrackList(displayTrackList);
     }
@@ -140,6 +142,8 @@ function AlbumList({ trackList, avatar }) {
   const isLastTrack = (track) => {
     return displayTrackList[displayTrackList.length - 1]?.id === track.id;
   };
+
+  // console.log("Album list:", displayTrackList);
 
   return (
     <div className={cx("container")}>

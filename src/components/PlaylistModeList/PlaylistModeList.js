@@ -34,8 +34,8 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
     shuffledTrackList,
     setStoredTrackListMap,
     storedTrackListMap,
-    activeMemo,
-    setActiveMemo,
+    storedAudiosMap,
+    setStoredAudiosMap,
   } = useAudioPlayer();
 
   // console.log("trackList:", trackList);
@@ -64,12 +64,12 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
       : null;
 
   const avatarSrc = useMemo(() => {
-    if (activeMemo) {
+    if (storedAudiosMap) {
       return activeAvatar || podcastStoredAvatar;
     }
     return albumAvatar || podcastListAvatar;
   }, [
-    activeMemo,
+    storedAudiosMap,
     activeAvatar,
     podcastStoredAvatar,
     podcastListAvatar,
@@ -90,8 +90,14 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
     if (isRandom && shuffledTrackList.length > 0) {
       return shuffledTrackList;
     }
-    return activeMemo ? storedTrackArray : trackList;
-  }, [isRandom, shuffledTrackList, activeMemo, storedTrackArray, trackList]);
+    return storedAudiosMap ? storedTrackArray : trackList;
+  }, [
+    isRandom,
+    shuffledTrackList,
+    storedAudiosMap,
+    storedTrackArray,
+    trackList,
+  ]);
 
   useEffect(() => {
     const playlist = trackList.length > 0 ? trackList : storedTrackArray;
@@ -103,7 +109,7 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
       }
     }
     // console.log("Shuffled Track List:", shuffledTrackList);
-  }, [storedTrackArray, activeMemo, setTrackList, shuffledTrackList]);
+  }, [storedTrackArray, storedAudiosMap, setTrackList, shuffledTrackList]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -138,13 +144,13 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
   }, [currentTrackId, setTrackIndex]);
 
   useEffect(() => {
-    if (!activeMemo) {
-      setActiveMemo(false);
+    if (!storedAudiosMap) {
+      setStoredAudiosMap(false);
     }
-  }, [activeMemo]);
+  }, [storedAudiosMap]);
 
   const handleTrackPlay = (track) => {
-    if (!activeMemo) {
+    if (!storedAudiosMap) {
       setStoredTrackListMap(new Map());
       setTrackList(displayTrackList);
     }

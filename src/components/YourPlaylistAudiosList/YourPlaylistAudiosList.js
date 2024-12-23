@@ -39,8 +39,8 @@ function YourPlaylistAudiosList({ audioList, playlistIndex }) {
     setShuffledTrackList,
     shuffledTrackList,
     setStoredTrackListMap,
-    activeMemo,
-    setActiveMemo,
+    storedAudiosMap,
+    setStoredAudiosMap,
   } = useAudioPlayer();
 
   const trackRefs = useRef([]);
@@ -77,9 +77,10 @@ function YourPlaylistAudiosList({ audioList, playlistIndex }) {
         const shuffledList = shuffleArray(audioList);
         setShuffledTrackList(shuffledList);
       }
+    } else {
+      setShuffledTrackList([]);
     }
-    // console.log("Audio tracks:", audioList);
-  }, [audioList, isRandom, setTrackList, setShuffledTrackList]);
+  }, [audioList, isRandom, setTrackList, setShuffledTrackList, playlistIndex]);
 
   const displayTrackList = isRandom ? shuffledTrackList : audioList;
 
@@ -108,18 +109,19 @@ function YourPlaylistAudiosList({ audioList, playlistIndex }) {
         block: "center",
       });
     }
-    // console.log("Track List:", displayTrackList);
   }, [currentTrackId, displayTrackList, setTrackIndex]);
 
   useEffect(() => {
-    if (!activeMemo) {
-      setActiveMemo(false);
+    if (!storedAudiosMap) {
+      setStoredAudiosMap(false);
     }
-    // console.log("AlbumList activeMemo:", activeMemo);
-  }, [activeMemo]);
+    // console.log("AlbumList storedAudiosMap:", storedAudiosMap);
+  }, [storedAudiosMap]);
+
+  console.log(displayTrackList);
 
   const handleTrackPlay = (track) => {
-    if (!activeMemo) {
+    if (!storedAudiosMap) {
       setStoredTrackListMap(new Map());
       setTrackList(displayTrackList);
     }
@@ -157,7 +159,7 @@ function YourPlaylistAudiosList({ audioList, playlistIndex }) {
                   playing: audio.trackId === currentTrackId,
                   transparent: isTrackEnded && isLastTrack(audio),
                 })}
-                key={audio.trackId}
+                key={index}
               >
                 <div className={cx("player")}>
                   <img

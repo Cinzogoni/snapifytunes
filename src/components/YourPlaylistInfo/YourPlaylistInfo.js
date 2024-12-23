@@ -108,22 +108,24 @@ function YourPlaylistInfo({
           </h4>
 
           <div className={cx("actions")}>
-            <Player
-              onLoop={handleLoop}
-              onRandom={handleRandomTrack}
-              isRandom={isRandom}
-              activeLoopClick={activeLoopClick}
-              setActiveLoopClick={setActiveLoopClick}
-              activeRandomClick={activeRandomClick}
-              setActiveRandomClick={setActiveRandomClick}
-              //
-              frameYourPlaylist
-              playerAlbumInfoResize
-              playerAlbumInfo
-              actionsAlbumInfo
-              hideAlbumInfo
-              spaceAlbumInfo
-            />
+            <div className={cx("player")}>
+              <Player
+                onLoop={handleLoop}
+                onRandom={handleRandomTrack}
+                isRandom={isRandom}
+                activeLoopClick={activeLoopClick}
+                setActiveLoopClick={setActiveLoopClick}
+                activeRandomClick={activeRandomClick}
+                setActiveRandomClick={setActiveRandomClick}
+                //
+                frameYourPlaylist
+                playerYourPlaylist
+                playerAlbumInfo
+                actionsAlbumInfo
+                hideAlbumInfo
+                spaceAlbumInfo
+              />
+            </div>
 
             <div className={cx("functions")}>
               <div className={cx("func")}>

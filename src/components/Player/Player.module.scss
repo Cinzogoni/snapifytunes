@@ -803,8 +803,12 @@ audio {
 
 //Your Playlist
 .frameYourPlaylist {
-  top: 38px;
-  left: 36px;
+  left: -5px;
+  bottom: 0;
+}
+
+.playerYourPlaylist {
+  left: 0;
 }
 
 //Footer Responsive

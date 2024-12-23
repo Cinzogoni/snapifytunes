@@ -29,12 +29,10 @@ function PodcastAudioList({ audioList }) {
     shuffledTrackList,
     isRandom,
     setStoredTrackListMap,
-    activeMemo,
-    setActiveMemo,
+    storedAudiosMap,
+    setStoredAudiosMap,
   } = useAudioPlayer();
   const { t } = useTranslation();
-
-  // console.log(audioList);
 
   const audioRefs = useRef([]);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -103,15 +101,15 @@ function PodcastAudioList({ audioList }) {
   }, [currentTrackId, displayTrackList, setTrackIndex]);
 
   useEffect(() => {
-    if (!activeMemo) {
-      setActiveMemo(false);
+    if (!storedAudiosMap) {
+      setStoredAudiosMap(false);
     }
 
-    // console.log("PodcastAudioList activeMemo:", activeMemo);
-  }, [activeMemo]);
+    // console.log("PodcastAudioList storedAudiosMap:", storedAudiosMap);
+  }, [storedAudiosMap]);
 
   const handleTrackPlay = (audio) => {
-    if (!activeMemo) {
+    if (!storedAudiosMap) {
       setStoredTrackListMap(new Map());
       setTrackList(displayTrackList);
     }

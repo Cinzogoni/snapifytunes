@@ -7,6 +7,7 @@ import React, {
 } from "react";
 
 import { useLocation } from "react-router-dom";
+import { baseName } from "~/bassName";
 
 const AudioPlayer = createContext();
 
@@ -40,16 +41,26 @@ export function AudioPlayerProvider({ children }) {
 
   const [shuffledTrackList, setShuffledTrackList] = useState([]);
   const [storedTrackListMap, setStoredTrackListMap] = useState(new Map());
-  const [activeMemo, setActiveMemo] = useState(false);
+  const [storedAudiosMap, setStoredAudiosMap] = useState(false);
 
   const playerRefs = useRef(null);
   const location = useLocation();
 
-  const isAlbumPage = location.pathname.startsWith(`/albumPage`);
-  const isPodcastPage = location.pathname.startsWith(`/podcastPage`);
-  const isPlaylistPage = location.pathname.startsWith(`/playlistPage`);
-  const isTrackPage = location.pathname.startsWith(`/track`);
-  const isMusicMakerPage = location.pathname.startsWith(`/musicMakerPage`);
+  const isAlbumPage = location.pathname.startsWith(
+    `${process.env.NODE_ENV === "production" ? baseName : ""}/albumPage`
+  );
+  const isPodcastPage = location.pathname.startsWith(
+    `${process.env.NODE_ENV === "production" ? baseName : ""}/podcastPage`
+  );
+  const isPlaylistPage = location.pathname.startsWith(
+    `${process.env.NODE_ENV === "production" ? baseName : ""}/playlistPage`
+  );
+  const isTrackPage = location.pathname.startsWith(
+    `${process.env.NODE_ENV === "production" ? baseName : ""}/track`
+  );
+  const isMusicMakerPage = location.pathname.startsWith(
+    `${process.env.NODE_ENV === "production" ? baseName : ""}/musicMakerPage`
+  );
   const currentUrl = isAlbumPage || isPodcastPage || isPlaylistPage;
 
   useEffect(() => {
@@ -75,8 +86,11 @@ export function AudioPlayerProvider({ children }) {
   }, [isPlaying]);
 
   useEffect(() => {
-    // console.log("Track list: ", trackList);
-  }, [trackList, trackIndex]);
+    if (!currentUrl) {
+      setIsRandom(false);
+      setActiveRandomClick(true);
+    }
+  }, [location.pathname, currentUrl]);
 
   const handleVideoPlay = () => {
     setIsVideoPlaying(true);
@@ -280,17 +294,11 @@ export function AudioPlayerProvider({ children }) {
     setIsRandom(newRandomState);
   };
 
-  useEffect(() => {
-    if (activeMemo && storedTrackListMap.size > 0) {
-      // console.log(storedTrackListMap);
-    }
-  }, [storedTrackListMap, activeMemo]);
-
-  const handleMemo = () => {
+  const handleStoredAudiosMap = () => {
     const newMap = new Map(storedTrackListMap);
     const savedTrackList = newMap.get(currentUrl)?.trackList || [];
 
-    if (activeMemo) {
+    if (storedAudiosMap) {
       if (!newMap.has(currentUrl) || savedTrackList.length <= 1) {
         newMap.set(currentUrl, { trackList: [...trackList] });
       }
@@ -303,7 +311,7 @@ export function AudioPlayerProvider({ children }) {
     }
 
     setStoredTrackListMap(newMap);
-    setActiveMemo((prev) => !prev);
+    setStoredAudiosMap((prev) => !prev);
   };
 
   return (
@@ -347,15 +355,9 @@ export function AudioPlayerProvider({ children }) {
         handlePrevTrack,
         handleRandomTrack,
         setIsPlaying,
-        storedTrackListMap,
-        activeMemo,
-        setStoredTrackListMap,
-        setActiveMemo,
-        handleMemo,
+        handleStoredAudiosMap,
         volume,
         setVolume,
-        shuffledTrackList,
-        setShuffledTrackList,
         isTrackEnded,
         setIsTrackEnded,
         isVideoPlaying,
@@ -364,6 +366,12 @@ export function AudioPlayerProvider({ children }) {
         trackIndex,
         setTrackList,
         setTrackIndex,
+        shuffledTrackList,
+        setShuffledTrackList,
+        setStoredTrackListMap,
+        storedTrackListMap,
+        setStoredAudiosMap,
+        storedAudiosMap,
         currentUrl,
       }}
     >

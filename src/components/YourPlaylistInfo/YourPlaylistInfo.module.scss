@@ -124,22 +124,29 @@
 }
 
 .actions {
+  width: 100%;
   display: flex;
   align-items: center;
+}
+
+.player {
   position: relative;
+  width: 100px;
+  height: 50px;
 }
 
 .functions {
   display: flex;
   align-items: center;
-  transform: translate(78px, 2px);
 }
 
 .func {
-  height: 35px;
-  margin-left: 18px;
+  width: 50px;
+  height: 50px;
+
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .edit {
@@ -152,29 +159,4 @@
   color: var(--main--button-color);
   width: 30px;
   height: 30px;
-}
-
-@media (max-width: 630px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .avatar {
-    width: 100%;
-  }
-
-  .default-avatar {
-    width: 100%;
-  }
-  .avatar-0,
-  .avatar-1,
-  .avatar-2,
-  .avatar-3,
-  .avatar-4 {
-    width: 50%;
-  }
-
-  .info {
-    margin: 30px 0 0 0;
-  }
 }
