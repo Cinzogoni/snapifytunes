@@ -87,11 +87,10 @@ function YourPlaylistAdd({
     handleAddPlaylistItem();
 
     if (userName && itemName) {
-      const basePath = process.env.NODE_ENV === "production" ? baseName : "";
       const newPlaylistName = encodeURIComponent(itemName);
-      const playlistPath1 = `${basePath}/yourPlaylistPage/${userName}/${yourPlaylistName}`;
-      const playlistPath2 = `${basePath}/yourPlaylistPage/${userName}/${newPlaylistName}`;
-      const targetPath = `${basePath}/yourPlaylistPage/${userName}/${newPlaylistName}`;
+      const playlistPath1 = `${baseName}/yourPlaylistPage/${userName}/${yourPlaylistName}`;
+      const playlistPath2 = `${baseName}/yourPlaylistPage/${userName}/${newPlaylistName}`;
+      const targetPath = `${baseName}/yourPlaylistPage/${userName}/${newPlaylistName}`;
 
       if (currentPath === playlistPath1 || currentPath === playlistPath2) {
         navigate(targetPath);
