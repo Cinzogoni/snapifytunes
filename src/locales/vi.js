@@ -57,6 +57,23 @@ const vi = {
   playlistNull: "Không tồn tại vì trong thư viện, bạn đã xoá danh sách phát",
 
   aboutUs: "Về Chúng Tôi",
+  aboutUsDesc1: `ra đời với mong muốn trở thành một nền
+  tảng âm nhạc trực tuyến, nơi mọi người dễ dàng tiếp cận những bài
+  hát yêu thích, khám phá giai điệu mới và tận hưởng âm nhạc theo cách
+  riêng. Chúng tôi luôn cố gắng xây dựng trải nghiệm nghe nhạc hiện
+  đại, cá nhân hoá và phù hợp với từng tâm trạng của người dùng.`,
+  aboutUsDesc2: `sáng lập bởi Cinzogoni (Thái Chí Huy)
+  - người Việt Nam với niềm đam mê âm nhạc và công nghệ. Với tinh thần
+  đầy nhiệt huyết và sáng tạo. Anh và đội ngũ luôn không ngừng đổi mới
+  với nhiều tính năng, trải nghiệm tốt hơn cho người dùng như kho nhạc
+  đa dạng nhiều thể loại, phong cách, tâm trạng từ nhiều nghệ sĩ khác
+  nhau. Playist cá nhân hoá để phù hợp với sở thích của bạn. Cập nhật
+  các khoảnh khắc trong ngành giải trí âm nhạc để người dùng có thêm
+  nhiều thông tin hữu ích.`,
+  aboutUsDesc3: `không chỉ là nơi bạn tìm kiếm âm nhạc,
+  mà còn là nơi kết nối cảm xúc. Chúng tôi luôn nổ lực để trở thành
+  người bạn đồng hành cùng bạn trong mọi khoảnh khắc cuộc sống, từ
+  những giây phút rộn ràng niềm vui đến những khoảng lặng sâu lắng.`,
   helpCenter: "Hổ Trợ",
   policy: "Chính Sách",
   yourPlaylists: "Thư Viện",

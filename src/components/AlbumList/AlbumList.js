@@ -20,6 +20,7 @@ import AudioShareLink from "../AudioShareLink";
 function AlbumList({ trackList, avatar }) {
   const {
     currentTrackId,
+    isPlaying,
     handlePlay,
     handlePause,
     handleLoop,
@@ -152,10 +153,10 @@ function AlbumList({ trackList, avatar }) {
           <div
             ref={(el) => (trackRefs.current[index] = el)}
             className={cx("track-box", {
-              playing: track.id === currentTrackId,
+              playing: track.id === currentTrackId && isPlaying,
               transparent: isTrackEnded && isLastTrack(track),
             })}
-            key={index}
+            key={track.id}
           >
             <div className={cx("player")}>
               <img className={cx("avatar")} src={avatar} alt={track.title} />
@@ -182,6 +183,7 @@ function AlbumList({ trackList, avatar }) {
                 //
                 frameSingleTracks
                 playerSingleTracks
+                stopperSingleTracks
                 waveformBoxSingleTracks
                 actionsAlbumList
                 hideAlbumList

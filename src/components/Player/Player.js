@@ -1,9 +1,8 @@
-import { useRef, useEffect, useState } from "react";
-
 import classNames from "classnames/bind";
 import styles from "./Player.module.scss";
 const cx = classNames.bind(styles);
 
+import { useRef, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { Link } from "react-router-dom";
@@ -284,16 +283,16 @@ const Player = ({
       setCurrentTrack(trackList[trackIndex]);
     }
 
-    onPlay();
     setTimeout(() => {
+      onPlay();
       setIsTrackEnded(false);
     }, 100);
     // console.log("The track is playing!");
   };
 
   const handlePauseClick = () => {
-    onPause();
     setTimeout(() => {
+      onPause();
       setIsTrackEnded(true);
     }, 100);
     // console.log("The track has paused!");

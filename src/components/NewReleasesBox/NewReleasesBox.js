@@ -2,6 +2,8 @@ import classNames from "classnames/bind";
 import styles from "./NewReleasesBox.module.scss";
 const cx = classNames.bind(styles);
 
+import { useEffect } from "react";
+
 import { useAudioPlayer } from "../AudioPlayerProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -33,12 +35,21 @@ function NewReleasesBox({
     handlePause,
     isPlaying,
     setActiveRandomClick,
+    setTrackList,
   } = useAudioPlayer();
 
   const handlePlayTrack = () => {
+    setTrackList([]);
+    const track = { trackId, trackTitle, trackPerformer, trackLink };
+    setTrackList((prevTrackList) => [...prevTrackList, track]);
+
     handlePlay(trackId, { trackTitle, trackPerformer }, trackLink);
     setActiveRandomClick(true);
   };
+
+  useEffect(() => {
+    // console.log("track list:", trackList);
+  }, [setTrackList]);
 
   return (
     <div className={cx("container")}>

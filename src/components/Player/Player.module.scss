@@ -33,7 +33,7 @@ audio {
 }
 
 .waveform-box {
-  width: 65px;
+  width: 60px;
   height: 48px;
   padding: 0 4px;
   display: flex;
@@ -126,7 +126,6 @@ audio {
   background-color: var(--1st--element-bg);
   border: var(--2nd--border-element);
   border-radius: 999px;
-  margin: 0 auto;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
@@ -806,7 +805,7 @@ audio {
 //Your Playlist
 .frameYourPlaylist {
   left: -5px;
-  top: 5;
+  top: 5px;
 }
 
 .playerYourPlaylist {

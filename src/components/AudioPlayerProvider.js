@@ -92,12 +92,16 @@ export function AudioPlayerProvider({ children }) {
     }
   }, [location.pathname, currentUrl]);
 
+  useEffect(() => {
+    // console.log("track list:", trackList);
+  }, [trackList, trackIndex]);
+
   const handleVideoPlay = () => {
     setIsVideoPlaying(true);
     setIsPlaying(false);
   };
 
-  const handlePlay = (trackId, track, link) => {
+  const handlePlay = async (trackId, track, link) => {
     try {
       const player = playerRefs.current;
       const audioLink = link || trackLink;
@@ -106,7 +110,7 @@ export function AudioPlayerProvider({ children }) {
 
       if (audioLink !== trackLink) {
         player.src = audioLink;
-        player.load();
+        await player.load();
       }
 
       setTrackLink(audioLink);
@@ -116,7 +120,7 @@ export function AudioPlayerProvider({ children }) {
       setIsTrackEnded(false);
       setIsPlaying(true);
       setIsVideoPlaying(false);
-      player.play();
+      await player.play();
 
       if (checkListeningTime >= player.duration) {
         setListeningTime(player.currentTime);
@@ -137,6 +141,7 @@ export function AudioPlayerProvider({ children }) {
         const currentTime = player.currentTime;
         player.pause();
         setCurrentTime(currentTime);
+        setIsPlaying(false);
       }
     } catch (stt) {
       console.log();
@@ -149,6 +154,7 @@ export function AudioPlayerProvider({ children }) {
       if (player) {
         player.currentTime = 0;
         player.pause();
+        setIsPlaying(false);
       }
       setIsPlaying(false);
     } catch (stt) {
@@ -162,71 +168,55 @@ export function AudioPlayerProvider({ children }) {
 
     try {
       if (player) {
-        if (isTrackPage || isMusicMakerPage) {
-          if (isLooping) {
+        const percentDuration = totalDuration * 0.97;
+
+        if (
+          listeningTime >= percentDuration &&
+          checkListeningTime >= percentDuration
+        ) {
+          // BUILDING...
+        }
+
+        if (!isLooping) {
+          if (trackList.length === 1) {
+            setIsTrackEnded(true);
+          }
+
+          if (trackIndex < trackList.length - 1) {
+            handleNextTrack();
+          } else {
+            setIsTrackEnded(true);
+          }
+        }
+
+        if (isLooping) {
+          if (trackList.length === 1) {
             player.currentTime = 0;
             setIsPlaying(true);
             setIsTrackEnded(false);
             setListeningTime(0);
             setCheckListeningTime(0);
             player.play();
-            // console.log("Single track loop is active!");
-          } else {
-            player.pause();
-            setIsPlaying(false);
-            setIsTrackEnded(true);
-            // console.log("Single track has ended!");
+            console.log("Single track loop is active!");
           }
-        } else {
-          const listToUse = isRandom ? shuffledTrackList : trackList;
-
-          if (listToUse.length > 0) {
-            if (isLooping) {
-              handleNextTrack();
-              setIsPlaying(true);
-              setIsTrackEnded(false);
-              player.play();
-              // console.log(
-              //   isRandom
-              //     ? "Shuffled track list loop is active!"
-              //     : "Playlist loop is active!"
-              // );
-            } else {
-              player.pause();
-              setIsPlaying(false);
-              player.currentTime = 0;
-
-              if (trackIndex < listToUse.length - 1) {
-                handleNextTrack();
-                setIsTrackEnded(false);
-                // console.log("The track has ended in the playlist!");
-              } else {
-                setIsTrackEnded(true);
-              }
-            }
-          } else {
-            console.log("No track list, no action taken!");
+          if (trackList.length > 1) {
+            setIsPlaying(true);
+            setIsTrackEnded(false);
+            setListeningTime(0);
+            setCheckListeningTime(0);
+            handleNextTrack();
           }
         }
       }
     } catch (stt) {
       console.log(stt);
     }
-
-    const percentDuration = totalDuration * 0.97;
-
-    if (
-      listeningTime >= percentDuration &&
-      checkListeningTime >= percentDuration
-    ) {
-      // BUILDING...
-    }
   };
 
   const handleLoop = () => {
     setIsLooping((prevIsLooping) => {
       const newIsLooping = !prevIsLooping;
-      console.log(`Looping is now ${newIsLooping ? "enabled" : "disabled"}.`);
+      // console.log(`Looping is now ${newIsLooping ? "enabled" : "disabled"}.`);
       return newIsLooping;
     });
   };

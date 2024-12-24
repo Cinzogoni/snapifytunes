@@ -32,6 +32,7 @@ function TrackInfo({
     handleLoop,
     activeLoopClick,
     setActiveLoopClick,
+    setTrackList,
   } = useAudioPlayer();
 
   const { t } = useTranslation();
@@ -96,7 +97,17 @@ function TrackInfo({
               trackType={trackType}
               //
               isStatus={id === currentTrackId}
-              onPlay={() =>
+              onPlay={() => {
+                setTrackList([]);
+
+                const tracks = {
+                  trackId: id,
+                  trackTitle: title,
+                  trackPerformer: stageName,
+                  trackLink: link,
+                };
+
+                setTrackList((prevTrackList) => [...prevTrackList, tracks]);
                 handlePlay(
                   id,
                   {
@@ -104,8 +115,8 @@ function TrackInfo({
                     trackPerformer: stageName,
                   },
                   link
-                )
-              }
+                );
+              }}
               onPause={() => handlePause(id)}
               onLoop={() => handleLoop()}
               activeLoopClick={activeLoopClick}

@@ -19,6 +19,7 @@ function TrendingSongsBox({ tracks }) {
     handlePause,
     isPlaying,
     setActiveRandomClick,
+    setTrackList,
   } = useAudioPlayer();
 
   const formatStreamed = (streamed) => {
@@ -70,6 +71,17 @@ function TrendingSongsBox({ tracks }) {
             //
             isStatus={track.id === currentTrackId && isPlaying}
             onPlay={() => {
+              setTrackList([]);
+
+              const tracks = {
+                trackId: track.id,
+                trackTitle: track.title,
+                trackPerformer: track.stageName,
+                trackLink: track.link,
+              };
+
+              setTrackList((prevTrackList) => [...prevTrackList, tracks]);
+
               handlePlay(
                 track.id,
                 {
@@ -78,6 +90,7 @@ function TrendingSongsBox({ tracks }) {
                 },
                 track.link
               );
+
               setActiveRandomClick(true);
             }}
             onPause={() => handlePause(track.id)}

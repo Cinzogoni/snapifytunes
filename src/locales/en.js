@@ -58,6 +58,15 @@ const en = {
     "Does not exist because you have deleted the playlist in your list",
 
   aboutUs: "About Us",
+  aboutUsDesc1: `was created with the desire to become an online music platform where everyone can easily access their favorite songs, 
+  discover new melodies, and enjoy music in their own way. 
+  We always strive to build a modern, personalized music experience that matches each user's mood.`,
+  aboutUsDesc2: `was founded by Cinzogoni (Thai Chi Huy) - a Vietnamese individual with a passion for music and technology. 
+  With enthusiasm and creativity, he and his team continuously innovate to bring better features and experiences for users, 
+  such as a diverse music library with various genres, styles, and moods from different artists. Personalized playlists are crafted to match your preferences. 
+  We also update moments in the music entertainment industry to provide users with more useful information.`,
+  aboutUsDesc3: `is not just a place to search for music but also a place to connect emotions. 
+  We constantly strive to be your companion in every moment of life, from joyful times to deep, quiet reflections.`,
   helpCenter: "Help Center",
   policy: "Policy",
   yourPlaylists: "Your Playlist",
