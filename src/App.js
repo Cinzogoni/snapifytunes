@@ -19,8 +19,6 @@ import { AudioPlayerProvider } from "./components/AudioPlayerProvider";
 import { SearchFocusProvider } from "./components/SearchFocusProvider/SearchFocusProvider";
 import { YourPlaylistProvider } from "./components/YourPlaylistProvider";
 
-import { baseName } from "./bassName";
-
 function AppProviders({ children }) {
   return (
     <I18nextProvider i18n={i18n}>
@@ -47,7 +45,7 @@ function App() {
   // console.log("publicRouter:", publicRouter);
 
   return (
-    <Router basename={baseName}>
+    <Router>
       <AppProviders>
         <div className={cx("app-message")}>
           App under development for mobile!

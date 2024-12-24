@@ -7,7 +7,6 @@ import React, {
 } from "react";
 
 import { useLocation } from "react-router-dom";
-import { baseName } from "~/bassName";
 
 const AudioPlayer = createContext();
 
@@ -46,21 +45,9 @@ export function AudioPlayerProvider({ children }) {
   const playerRefs = useRef(null);
   const location = useLocation();
 
-  const isAlbumPage = location.pathname.startsWith(
-    `${process.env.NODE_ENV === "production" ? baseName : ""}/albumPage`
-  );
-  const isPodcastPage = location.pathname.startsWith(
-    `${process.env.NODE_ENV === "production" ? baseName : ""}/podcastPage`
-  );
-  const isPlaylistPage = location.pathname.startsWith(
-    `${process.env.NODE_ENV === "production" ? baseName : ""}/playlistPage`
-  );
-  const isTrackPage = location.pathname.startsWith(
-    `${process.env.NODE_ENV === "production" ? baseName : ""}/track`
-  );
-  const isMusicMakerPage = location.pathname.startsWith(
-    `${process.env.NODE_ENV === "production" ? baseName : ""}/musicMakerPage`
-  );
+  const isAlbumPage = location.pathname.startsWith(`/albumPage`);
+  const isPodcastPage = location.pathname.startsWith(`/podcastPage`);
+  const isPlaylistPage = location.pathname.startsWith(`/playlistPage`);
   const currentUrl = isAlbumPage || isPodcastPage || isPlaylistPage;
 
   useEffect(() => {
