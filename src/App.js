@@ -45,7 +45,9 @@ function App() {
   // console.log("publicRouter:", publicRouter);
 
   return (
-    <Router>
+    <Router
+      basename={process.env.NODE_ENV === "production" ? "/snapifytunes" : ""}
+    >
       <AppProviders>
         <div className={cx("app-message")}>
           App under development for mobile!
