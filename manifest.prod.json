@@ -1,0 +1,25 @@
+{
+  "short_name": "SnapifyTunes",
+  "name": "SnapifyTunes - Web Player",
+  "icons": [
+    {
+      "src": "/snapifytunes/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/snapifytunes/logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/snapifytunes/social.png",
+      "type": "image/png",
+      "sizes": "1200x630"
+    }
+  ],
+  "start_url": "/snapifytunes/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
