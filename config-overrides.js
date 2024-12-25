@@ -10,6 +10,7 @@ module.exports = override(
       "nth-check": "nth-check@latest",
       postcss: "postcss@latest",
       "resolve-url-loader": "resolve-url-loader@latest",
+      "~": path.resolve(__dirname, "src"),
     };
 
     const plugins = config.plugins.map((plugin) => {
