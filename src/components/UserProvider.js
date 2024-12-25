@@ -9,7 +9,7 @@ import React, {
 
 import avatar from "~/assets/images/avatar/DefaultAvatar.png";
 
-import API_USER from "~/Api/API_User";
+import API_USER from "../Api/API_User";
 
 const UserContext = createContext();
 

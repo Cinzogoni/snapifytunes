@@ -1,4 +1,4 @@
-import API_USER from "~/Api/API_User";
+import API_USER from "../Api/API_User";
 
 function ChangePasswordService(currentUserId, currentPassword, newPassword) {
   const user = API_USER.userList.find((user) => user.id === currentUserId);

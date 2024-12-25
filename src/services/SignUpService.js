@@ -1,4 +1,4 @@
-import API_USER from "~/Api/API_User";
+import API_USER from "../Api/API_User";
 
 function SignUpService(fullName, phoneNumber, email, password) {
   const user = API_USER.getUser();
