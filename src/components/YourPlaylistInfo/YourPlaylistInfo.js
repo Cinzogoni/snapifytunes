@@ -6,8 +6,8 @@ import defaultAvatar from "~/assets/images/avatar/DefaultAvatar.png";
 
 import { useTranslation } from "react-i18next";
 
-import { useAudioPlayer } from "../AudioPlayerProvider";
-import { useYourPlaylist } from "../YourPlaylistProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
+import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

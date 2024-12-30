@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./AudioInfo.module.scss";
 const cx = classNames.bind(styles);
 
-import { useUser } from "../UserProvider";
+import { useUser } from "../../context/UserProvider";
 
 import Searchbar from "../Searchbar";
 

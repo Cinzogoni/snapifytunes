@@ -4,7 +4,7 @@ const cx = classNames.bind(styles);
 
 import { useEffect } from "react";
 
-import { useAudioPlayer } from "../AudioPlayerProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadphones, faInfo } from "@fortawesome/free-solid-svg-icons";
@@ -35,21 +35,21 @@ function NewReleasesBox({
     handlePause,
     isPlaying,
     setActiveRandomClick,
-    setTrackList,
+    setSingleTrack,
   } = useAudioPlayer();
 
   const handlePlayTrack = () => {
-    setTrackList([]);
+    setSingleTrack([]);
     const track = { trackId, trackTitle, trackPerformer, trackLink };
-    setTrackList((prevTrackList) => [...prevTrackList, track]);
+    setSingleTrack((prevSingleTrack) => [...prevSingleTrack, track]);
 
     handlePlay(trackId, { trackTitle, trackPerformer }, trackLink);
     setActiveRandomClick(true);
   };
 
   useEffect(() => {
-    // console.log("track list:", trackList);
-  }, [setTrackList]);
+    // console.log("track list:", multipleTrack);
+  }, [setSingleTrack]);
 
   return (
     <div className={cx("container")}>

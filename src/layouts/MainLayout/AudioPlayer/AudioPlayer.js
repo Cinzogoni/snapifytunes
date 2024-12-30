@@ -5,7 +5,7 @@ const cx = classNames.bind(styles);
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-import { useAudioPlayer } from "~/components/AudioPlayerProvider";
+import { useAudioPlayer } from "~/context/AudioPlayerProvider";
 
 import Player from "~/components/Player";
 

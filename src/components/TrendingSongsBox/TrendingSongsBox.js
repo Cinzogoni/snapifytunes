@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./TrendingSongsBox.module.scss";
 
-import { useAudioPlayer } from "../AudioPlayerProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadphones } from "@fortawesome/free-solid-svg-icons";
@@ -19,7 +19,7 @@ function TrendingSongsBox({ tracks }) {
     handlePause,
     isPlaying,
     setActiveRandomClick,
-    setTrackList,
+    setSingleTrack,
   } = useAudioPlayer();
 
   const formatStreamed = (streamed) => {
@@ -71,7 +71,7 @@ function TrendingSongsBox({ tracks }) {
             //
             isStatus={track.id === currentTrackId && isPlaying}
             onPlay={() => {
-              setTrackList([]);
+              setSingleTrack([]);
 
               const tracks = {
                 trackId: track.id,
@@ -80,7 +80,7 @@ function TrendingSongsBox({ tracks }) {
                 trackLink: track.link,
               };
 
-              setTrackList((prevTrackList) => [...prevTrackList, tracks]);
+              setSingleTrack((prevSingleTrack) => [...prevSingleTrack, tracks]);
 
               handlePlay(
                 track.id,

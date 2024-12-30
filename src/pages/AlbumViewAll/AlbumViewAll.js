@@ -6,12 +6,12 @@ import { faXmark, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { useState, useEffect, useRef } from "react";
 import { useDebounce } from "~/hooks";
-import { useTrackInfo } from "~/components/TrackInfoProvider";
-import { useSearchFocus } from "~/components/SearchFocusProvider/SearchFocusProvider";
+import { useTrackInfo } from "~/context/TrackInfoProvider";
+import { useSearchFocus } from "~/context/SearchFocusProvider";
 import { useTranslation } from "react-i18next";
 
 import Tippy from "@tippyjs/react/headless";
-import GridSystem from "~/components/GridSystem";
+import GridSystem from "~/styles/GridSystem";
 import WrapperPopper from "~/layouts/MainLayout/Popper/WrapperPopper";
 import AlbumBox from "~/components/AlbumBox";
 import AlbumItem from "~/components/AlbumItem";
@@ -142,6 +142,7 @@ function AlbumViewAll() {
                 colSM={cx("sm-3")}
                 colS={cx("s-4")}
                 colMo={cx("mo-6")}
+                colMi={cx("mi-12")}
               >
                 <div className={cx("boxes")}>
                   <AlbumBox

@@ -11,30 +11,28 @@ import LocationHandler from "./LocationHandler";
 
 import i18n from "./i18n";
 import { I18nextProvider } from "react-i18next";
-import { LanguageProvider } from "./components/LanguageProvider";
-import { UserProvider } from "./components/UserProvider";
-import { ModalProvider } from "./components/ModalProvider";
-import { TrackInfoProvider } from "./components/TrackInfoProvider";
-import { AudioPlayerProvider } from "./components/AudioPlayerProvider";
-import { SearchFocusProvider } from "./components/SearchFocusProvider/SearchFocusProvider";
-import { YourPlaylistProvider } from "./components/YourPlaylistProvider";
+
+import { UserProvider } from "./context/UserProvider";
+import { ModalProvider } from "./context/ModalProvider";
+import { TrackInfoProvider } from "./context/TrackInfoProvider";
+import { AudioPlayerProvider } from "./context/AudioPlayerProvider";
+import { SearchFocusProvider } from "./context/SearchFocusProvider";
+import { YourPlaylistProvider } from "./context/YourPlaylistProvider";
 
 function AppProviders({ children }) {
   return (
     <I18nextProvider i18n={i18n}>
-      <LanguageProvider>
-        <UserProvider>
-          <ModalProvider>
-            <TrackInfoProvider>
-              <AudioPlayerProvider>
-                <SearchFocusProvider>
-                  <YourPlaylistProvider>{children}</YourPlaylistProvider>
-                </SearchFocusProvider>
-              </AudioPlayerProvider>
-            </TrackInfoProvider>
-          </ModalProvider>
-        </UserProvider>
-      </LanguageProvider>
+      <UserProvider>
+        <ModalProvider>
+          <TrackInfoProvider>
+            <AudioPlayerProvider>
+              <SearchFocusProvider>
+                <YourPlaylistProvider>{children}</YourPlaylistProvider>
+              </SearchFocusProvider>
+            </AudioPlayerProvider>
+          </TrackInfoProvider>
+        </ModalProvider>
+      </UserProvider>
     </I18nextProvider>
   );
 }
@@ -49,10 +47,6 @@ function App() {
       basename={process.env.NODE_ENV === "production" ? "/snapifytunes" : ""}
     >
       <AppProviders>
-        <div className={cx("app-message")}>
-          App under development for mobile!
-        </div>
-
         <div className={cx("app")}>
           <Routes>
             {publicRouter.map((route, index) => {

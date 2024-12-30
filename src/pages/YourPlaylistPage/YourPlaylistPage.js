@@ -5,8 +5,8 @@ import YourPlaylistInfo from "~/components/YourPlaylistInfo";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { useYourPlaylist } from "~/components/YourPlaylistProvider";
-import { useUser } from "~/components/UserProvider";
+import { useYourPlaylist } from "~/context/YourPlaylistProvider";
+import { useUser } from "~/context/UserProvider";
 
 function YourPlaylistPage() {
   const { userName, yourPlaylistName } = useParams();

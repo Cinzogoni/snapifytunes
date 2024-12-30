@@ -1,11 +1,4 @@
-import React, {
-  createContext,
-  useState,
-  useContext,
-  useCallback,
-  useEffect,
-  // useMemo,
-} from "react";
+import React, { createContext, useState, useContext } from "react";
 
 const SearchFocus = createContext();
 

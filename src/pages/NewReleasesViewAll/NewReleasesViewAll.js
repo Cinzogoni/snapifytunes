@@ -6,16 +6,16 @@ import { faArrowLeft, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { useState, useEffect, useRef } from "react";
 import { useDebounce } from "~/hooks";
-import { useSearchFocus } from "~/components/SearchFocusProvider/SearchFocusProvider";
+import { useSearchFocus } from "~/context/SearchFocusProvider";
 
 import Tippy from "@tippyjs/react/headless";
 import WrapperPopper from "~/layouts/MainLayout/Popper/WrapperPopper";
-import GridSystem from "~/components/GridSystem";
+import GridSystem from "~/styles/GridSystem";
 import NewReleasesBox from "~/components/NewReleasesBox";
 import MusicTrackItem from "~/components/MusicTrackItem";
 import Navigation from "~/components/Navigation";
 
-import { useTrackInfo } from "~/components/TrackInfoProvider";
+import { useTrackInfo } from "~/context/TrackInfoProvider";
 import { useTranslation } from "react-i18next";
 
 const cx = classNames.bind(styles);
@@ -150,6 +150,7 @@ function NewReleasesViewAll() {
                   colSM={cx("sm-3")}
                   colS={cx("s-4")}
                   colMo={cx("mo-6")}
+                  colMi={cx("mi-12")}
                 >
                   <div className={cx("boxes")}>
                     <NewReleasesBox

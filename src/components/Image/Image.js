@@ -15,8 +15,8 @@ import {
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { useUser } from "../UserProvider";
-import { useYourPlaylist } from "../YourPlaylistProvider";
+import { useUser } from "../../context/UserProvider";
+import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 
 function Image() {
   const { t } = useTranslation();

@@ -5,7 +5,7 @@ const cx = classNames.bind(styles);
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import { useAudioPlayer } from "../AudioPlayerProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,7 +23,7 @@ function MusicMakerSingles({ musicSingles }) {
     handlePlay,
     handlePause,
     isTrackEnded,
-    setTrackIndex,
+    setMultipleTrackIndex,
   } = useAudioPlayer();
   const { t } = useTranslation();
 
@@ -51,7 +51,7 @@ function MusicMakerSingles({ musicSingles }) {
       ? musicSingles.findIndex((track) => track.id === currentTrackId)
       : -1;
 
-    setTrackIndex(index);
+    setMultipleTrackIndex(index);
 
     if (!isScrolling && index !== -1 && trackRefs.current[index]) {
       trackRefs.current[index].scrollIntoView({
@@ -59,7 +59,7 @@ function MusicMakerSingles({ musicSingles }) {
         block: "center",
       });
     }
-  }, [currentTrackId, setTrackIndex]);
+  }, [currentTrackId, setMultipleTrackIndex]);
 
   const formatStreamed = (streamed) => {
     if (streamed < 1000) {

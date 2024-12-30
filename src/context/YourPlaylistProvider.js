@@ -11,8 +11,8 @@ import { useModal } from "./ModalProvider";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import Modal from "./Modal/Modal";
-import YourPlaylistAdd from "./YourPlaylistAdd";
+import Modal from "../components/Modal/Modal";
+import YourPlaylistAdd from "../components/YourPlaylistAdd";
 
 const YourPlaylistStates = createContext();
 

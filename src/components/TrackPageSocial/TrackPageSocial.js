@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from "react";
 
 import { useTranslation } from "react-i18next";
 
-import GridSystem from "../GridSystem";
+import GridSystem from "../../styles/GridSystem";
 
 function TrackPageSocial({ socialTracks }) {
   const { t } = useTranslation();
@@ -49,9 +49,10 @@ function TrackPageSocial({ socialTracks }) {
               colSM={cx("sm-3")}
               colS={cx("s-4")}
               colMo={cx("mo-6")}
+              colMi={cx("mi-12")}
             >
-              {group.map((track, trackIndex) => (
-                <div key={trackIndex} className={cx("boxes")}>
+              {group.map((track, multipleTrackIndex) => (
+                <div key={multipleTrackIndex} className={cx("boxes")}>
                   <div className={cx("box")}>
                     <Link
                       to={routesConfig.track

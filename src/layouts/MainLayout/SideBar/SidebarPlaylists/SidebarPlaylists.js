@@ -8,9 +8,9 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import { useTranslation } from "react-i18next";
 
-import { useUser } from "~/components/UserProvider";
-import { useModal } from "~/components/ModalProvider";
-import { useYourPlaylist } from "~/components/YourPlaylistProvider";
+import { useUser } from "~/context/UserProvider";
+import { useModal } from "~/context/ModalProvider";
+import { useYourPlaylist } from "~/context/YourPlaylistProvider";
 
 function SidebarPlaylists({ children }) {
   const { t } = useTranslation();

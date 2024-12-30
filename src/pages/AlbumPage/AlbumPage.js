@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useTrackInfo } from "~/components/TrackInfoProvider";
+import { useTrackInfo } from "~/context/TrackInfoProvider";
 
 import Track from "~/components/Track";
 import AlbumInfo from "~/components/AlbumInfo";
@@ -28,7 +28,7 @@ function AlbumPage() {
   );
 
   const avatar = findAlbum ? findAlbum.albumAvatar || "" : "";
-  const trackList = findAlbum ? findAlbum.tracks || [] : [];
+  const multipleTrack = findAlbum ? findAlbum.tracks || [] : [];
 
   // Lọc các album còn lại ngoài album hiện tại
   const socialAlbums = Albums.filter(
@@ -41,7 +41,7 @@ function AlbumPage() {
     <Track
       info={<AlbumInfo albumInfo={findAlbum} />}
       social={<AlbumPageSocial socialAlbums={socialAlbums} />}
-      list={<AlbumList trackList={trackList} avatar={avatar} />}
+      list={<AlbumList multipleTrack={multipleTrack} avatar={avatar} />}
     />
   );
 }

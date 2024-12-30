@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import { useTrackInfo } from "./components/TrackInfoProvider";
-import { useUser } from "./components/UserProvider";
+import { useTrackInfo } from "./context/TrackInfoProvider";
+import { useUser } from "./context/UserProvider";
 
 function LocationHandler() {
   const {

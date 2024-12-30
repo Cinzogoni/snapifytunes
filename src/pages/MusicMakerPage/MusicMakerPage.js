@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 import MusicMakerInfo from "~/components/MusicMakerInfo";
 import MusicMakerSingles from "~/components/MusicMakerSingles";
 import MusicMakerAlbums from "~/components/MusicMakerAlbums";
-import { useTrackInfo } from "~/components/TrackInfoProvider";
+import { useTrackInfo } from "~/context/TrackInfoProvider";
 
 function MusicMakerPage() {
   const { musicMaker } = useTrackInfo();

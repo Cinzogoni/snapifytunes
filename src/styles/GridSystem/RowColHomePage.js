@@ -24,6 +24,7 @@ function RowColHomePage({ element1, element2, items }) {
                 colSM={cx("sm-3")}
                 colS={cx("s-4")}
                 colMo={cx("mo-6")}
+                colMi={cx("mi-12")}
               >
                 {React.cloneElement(element2, {
                   trackId: `new_${item.id}`,

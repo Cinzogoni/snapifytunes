@@ -14,8 +14,8 @@ import HeaderActions from "../HeaderActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-import { useModal } from "~/components/ModalProvider";
-import { useUser } from "~/components/UserProvider";
+import { useModal } from "~/context/ModalProvider";
+import { useUser } from "~/context/UserProvider";
 import { useTranslation } from "react-i18next";
 
 import Modal from "~/components/Modal/Modal";

@@ -5,7 +5,7 @@ const cx = classNames.bind(styles);
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faStar } from "@fortawesome/free-solid-svg-icons";
 
-import { useAudioPlayer } from "../AudioPlayerProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 import { useTranslation } from "react-i18next";
 
 import { Link } from "react-router-dom";

@@ -10,11 +10,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import Navigation from "../Navigation";
-import GridSystem from "../GridSystem";
+import GridSystem from "../../styles/GridSystem";
 import MomentBox from "../MomentBox";
 
-import { useTrackInfo } from "../TrackInfoProvider";
-import { useAudioPlayer } from "../AudioPlayerProvider";
+import { useTrackInfo } from "../../context/TrackInfoProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 import { useTranslation } from "react-i18next";
 
 const cx = classNames.bind(styles);
@@ -130,6 +130,7 @@ function Moment() {
               colSM={cx("sm-6")}
               colS={cx("s-6")}
               colMo={cx("mo-12")}
+              colMi={cx("mi-12")}
             >
               <MomentBox
                 id={video.id}

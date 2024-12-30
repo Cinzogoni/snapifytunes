@@ -3,7 +3,7 @@ import styles from "./PodcastInfo.module.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { useAudioPlayer } from "../AudioPlayerProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 import { useTranslation } from "react-i18next";
 
 import Player from "../Player";

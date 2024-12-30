@@ -3,7 +3,7 @@ import styles from "./TrendingSongs.module.scss";
 
 import { useState, useEffect, memo, useMemo, useCallback } from "react";
 
-import GridSystem from "../GridSystem";
+import GridSystem from "../../styles/GridSystem";
 import TrendingSongsBox from "../TrendingSongsBox";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,8 +12,8 @@ import {
   faCircleChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { useTrackInfo } from "../TrackInfoProvider";
-import { useYourPlaylist } from "../YourPlaylistProvider";
+import { useTrackInfo } from "../../context/TrackInfoProvider";
+import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 
 import { useTranslation } from "react-i18next";
 
@@ -109,7 +109,7 @@ function TrendingSongs() {
                 setActiveNewReleasesPlaylist(false);
             }}
             style={{
-              transition: "transition: transform 0.1s ease-in-out",
+              transition: "transform 0.1s ease-in-out",
               transform: activeMove === "prev" ? "scale(1.1)" : "scale(1)",
             }}
           />
@@ -122,7 +122,7 @@ function TrendingSongs() {
                 setActiveNewReleasesPlaylist(false);
             }}
             style={{
-              transition: "transition: transform 0.1s ease-in-out",
+              transition: "transform 0.1s ease-in-out",
               transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
             }}
           />
@@ -147,6 +147,7 @@ function TrendingSongs() {
               colSM={cx("sm-6")}
               colS={cx("s-6")}
               colMo={cx("mo-12")}
+              colMi={cx("mi-12")}
             >
               <TrendingSongsBox tracks={group} />
             </GridSystem>

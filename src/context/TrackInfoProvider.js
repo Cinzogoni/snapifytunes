@@ -13,6 +13,8 @@ import apiMusicMaker from "~/Api/API";
 import apiPodcast from "~/Api/API_01";
 import apiMoment from "~/Api/API_02";
 
+import loadingLogo from "~/assets/images/loading.png";
+
 const TrackProvider = createContext();
 
 export function TrackInfoProvider({ children }) {
@@ -90,7 +92,33 @@ export function TrackInfoProvider({ children }) {
   );
 
   if (loading) {
-    return <h1 style={{ color: "var(--main--text-color)" }}>Loading...</h1>;
+    return (
+      <div
+        style={{
+          width: "200px",
+          height: "100%",
+          margin: "auto",
+          display: "flex",
+          transform: "translateY(100%)",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignContent: "center",
+        }}
+      >
+        <img style={{ width: "200px", height: "200px" }} src={loadingLogo} />
+
+        <h1
+          style={{
+            color: "rgba(24, 113, 187, 0.8)",
+            fontSize: "2.4rem",
+            textAlign: "center",
+            marginTop: "48px",
+          }}
+        >
+          from Snapify
+        </h1>
+      </div>
+    );
   }
 
   return (

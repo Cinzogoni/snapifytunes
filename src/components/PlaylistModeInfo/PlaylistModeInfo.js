@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./PlaylistModeInfo.module.scss";
 const cx = classNames.bind(styles);
 
-import { useAudioPlayer } from "../AudioPlayerProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbTack } from "@fortawesome/free-solid-svg-icons";
@@ -14,30 +14,34 @@ function PlaylistModeInfo({ defaultTitle }) {
   const {
     handleStoredAudiosMap,
     storedAudiosMap,
-    storedTrackListMap,
-    trackList,
+    storedMultipleTrackMap,
+    multipleTrack,
   } = useAudioPlayer();
-  const storedTrackArray = Array.from(storedTrackListMap.values()).flatMap(
-    (item) => item.trackList
+  const storedTrackArray = Array.from(storedMultipleTrackMap.values()).flatMap(
+    (item) => item.multipleTrack
   );
 
   const titleValue = storedTrackArray[0];
   const activeTitle = titleValue?.name || titleValue?.topic;
 
+  const title = multipleTrack[0]?.name;
+
   useEffect(() => {
-    // console.log(trackList);
-  }, [trackList, storedTrackArray, storedAudiosMap]);
+    console.log(multipleTrack);
+  }, [multipleTrack, storedTrackArray, storedAudiosMap]);
 
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
         <div className={cx("info")}>
           <h1 className={cx("title")}>
-            {!defaultTitle
-              ? `${t("playlistModeCurrent")}: ${t("playlistNameNull")}`
-              : storedAudiosMap
+            {storedAudiosMap
               ? `${t("playlistModePinned")}: ${activeTitle}`
-              : `${t("playlistModeCurrent")}: ${defaultTitle}`}
+              : `${t("playlistModeCurrent")}: ${
+                  t(`topics.${defaultTitle}`) !== `topics.${defaultTitle}`
+                    ? t(`topics.${defaultTitle}`)
+                    : title || t("playlistNameNull")
+                }`}
           </h1>
         </div>
 

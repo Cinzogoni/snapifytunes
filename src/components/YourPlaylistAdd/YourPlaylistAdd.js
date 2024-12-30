@@ -3,8 +3,8 @@ import styles from "./YourPlaylistAdd.module.scss";
 const cx = classNames.bind(styles);
 
 import { useTranslation } from "react-i18next";
-import { useYourPlaylist } from "../YourPlaylistProvider";
-import { useUser } from "../UserProvider";
+import { useYourPlaylist } from "../../context/YourPlaylistProvider";
+import { useUser } from "../../context/UserProvider";
 
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";

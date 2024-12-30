@@ -7,8 +7,8 @@ import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadphones, faLink } from "@fortawesome/free-solid-svg-icons";
 
-import { useAudioPlayer } from "../AudioPlayerProvider";
-import { useUser } from "../UserProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
+import { useUser } from "../../context/UserProvider";
 import { useStreams } from "~/hooks/useStrreams";
 
 import { Link } from "react-router-dom";
@@ -34,11 +34,11 @@ function YourPlaylistAudiosList({ audioList, playlistIndex }) {
     setActiveRandomClick,
     isRandom,
     isTrackEnded,
-    setTrackIndex,
-    setTrackList,
-    setShuffledTrackList,
-    shuffledTrackList,
-    setStoredTrackListMap,
+    setMultipleTrackIndex,
+    setMultipleTrack,
+    setShuffledMultipleTrack,
+    shuffledMultipleTrack,
+    setStoredMultipleTrackMap,
     storedAudiosMap,
     setStoredAudiosMap,
   } = useAudioPlayer();
@@ -72,17 +72,23 @@ function YourPlaylistAudiosList({ audioList, playlistIndex }) {
 
   useEffect(() => {
     if (audioList.length > 0) {
-      setTrackList(audioList);
+      setMultipleTrack(audioList);
       if (isRandom) {
         const shuffledList = shuffleArray(audioList);
-        setShuffledTrackList(shuffledList);
+        setShuffledMultipleTrack(shuffledList);
       }
     } else {
-      setShuffledTrackList([]);
+      setShuffledMultipleTrack([]);
     }
-  }, [audioList, isRandom, setTrackList, setShuffledTrackList, playlistIndex]);
+  }, [
+    audioList,
+    isRandom,
+    setMultipleTrack,
+    setShuffledMultipleTrack,
+    playlistIndex,
+  ]);
 
-  const displayTrackList = isRandom ? shuffledTrackList : audioList;
+  const displayMultipleTrack = isRandom ? shuffledMultipleTrack : audioList;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,10 +104,12 @@ function YourPlaylistAudiosList({ audioList, playlistIndex }) {
 
   useEffect(() => {
     const index = currentTrackId
-      ? displayTrackList.findIndex((track) => track.trackId === currentTrackId)
+      ? displayMultipleTrack.findIndex(
+          (track) => track.trackId === currentTrackId
+        )
       : -1;
 
-    setTrackIndex(index);
+    setMultipleTrackIndex(index);
 
     if (!isScrolling && index !== -1 && trackRefs.current[index]) {
       trackRefs.current[index].scrollIntoView({
@@ -109,7 +117,7 @@ function YourPlaylistAudiosList({ audioList, playlistIndex }) {
         block: "center",
       });
     }
-  }, [currentTrackId, displayTrackList, setTrackIndex]);
+  }, [currentTrackId, displayMultipleTrack, setMultipleTrackIndex]);
 
   useEffect(() => {
     if (!storedAudiosMap) {
@@ -120,11 +128,13 @@ function YourPlaylistAudiosList({ audioList, playlistIndex }) {
 
   const handleTrackPlay = (track) => {
     if (!storedAudiosMap) {
-      setStoredTrackListMap(new Map());
-      setTrackList(displayTrackList);
+      setStoredMultipleTrackMap(new Map());
+      setMultipleTrack(displayMultipleTrack);
     }
 
-    setTrackIndex(displayTrackList.findIndex((t) => t.id === track.trackId));
+    setMultipleTrackIndex(
+      displayMultipleTrack.findIndex((t) => t.id === track.trackId)
+    );
     handlePlay(
       track.trackId,
       {
@@ -137,12 +147,17 @@ function YourPlaylistAudiosList({ audioList, playlistIndex }) {
   };
 
   const handleTrackPause = (track) => {
-    setTrackIndex(displayTrackList.findIndex((t) => t.id === track.trackId));
+    setMultipleTrackIndex(
+      displayMultipleTrack.findIndex((t) => t.id === track.trackId)
+    );
     handlePause(track.trackId);
   };
 
   const isLastTrack = (track) => {
-    return displayTrackList[displayTrackList.length - 1]?.id === track.trackId;
+    return (
+      displayMultipleTrack[displayMultipleTrack.length - 1]?.id ===
+      track.trackId
+    );
   };
 
   return (
@@ -150,7 +165,7 @@ function YourPlaylistAudiosList({ audioList, playlistIndex }) {
       {currentUser && (
         <div className={cx("container")}>
           <div className={cx("audios")}>
-            {displayTrackList.map((audio, index) => (
+            {displayMultipleTrack.map((audio, index) => (
               <div
                 ref={(el) => (trackRefs.current[index] = el)}
                 className={cx("audio-box", {

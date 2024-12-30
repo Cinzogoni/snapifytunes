@@ -8,11 +8,11 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
 
-import { useAudioPlayer } from "../AudioPlayerProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 
 import Player from "../Player";
 
-function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
+function PlaylistModeList({ multipleTrack, findPlaylistItem }) {
   const { t } = useTranslation();
   const {
     currentTrackId,
@@ -28,35 +28,35 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
     setActiveRandomClick,
     isRandom,
     isTrackEnded,
-    setTrackIndex,
-    setTrackList,
-    setShuffledTrackList,
-    shuffledTrackList,
-    setStoredTrackListMap,
-    storedTrackListMap,
+    setMultipleTrackIndex,
+    setMultipleTrack,
+    setShuffledMultipleTrack,
+    shuffledMultipleTrack,
+    setStoredMultipleTrackMap,
+    storedMultipleTrackMap,
     storedAudiosMap,
     setStoredAudiosMap,
   } = useAudioPlayer();
 
-  // console.log("trackList:", trackList);
+  console.log("Playlist mode multipleTrack:", multipleTrack);
 
   const trackRefs = useRef([]);
   const [isScrolling, setIsScrolling] = useState(false);
 
   const storedTrackArray = useMemo(() => {
-    return Array.from(storedTrackListMap.values()).flatMap(
-      (item) => item.trackList
+    return Array.from(storedMultipleTrackMap.values()).flatMap(
+      (item) => item.multipleTrack
     );
-  }, [storedTrackListMap]);
+  }, [storedMultipleTrackMap]);
 
-  const value = trackList[0];
+  const value = multipleTrack[0];
   const albumAvatar = value?.avatar;
 
   const podcastStoredAvatar = storedTrackArray.map((a) => a.audioAvatar);
-  const podcastListAvatar = trackList.map((a) => a.audioAvatar);
+  const podcastListAvatar = multipleTrack.map((a) => a.audioAvatar);
 
   const yourPlaylistStoredAvatar = storedTrackArray.map((a) => a.trackAvatar);
-  const yourPlaylistAvatar = trackList.map((a) => a.trackAvatar);
+  const yourPlaylistAvatar = multipleTrack.map((a) => a.trackAvatar);
 
   const activeAvatar =
     storedTrackArray.length > 0
@@ -77,39 +77,28 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
   ]);
 
   const finalAvatarSrc = useMemo(() => {
-    return trackList.map((_, index) => {
+    return multipleTrack.map((_, index) => {
       return (
         (yourPlaylistAvatar && yourPlaylistAvatar[index]) ||
         (yourPlaylistStoredAvatar && yourPlaylistStoredAvatar[index]) ||
         avatarSrc
       );
     });
-  }, [trackList, yourPlaylistAvatar, yourPlaylistStoredAvatar, avatarSrc]);
-
-  const displayTrackList = useMemo(() => {
-    if (isRandom && shuffledTrackList.length > 0) {
-      return shuffledTrackList;
-    }
-    return storedAudiosMap ? storedTrackArray : trackList;
-  }, [
-    isRandom,
-    shuffledTrackList,
-    storedAudiosMap,
-    storedTrackArray,
-    trackList,
-  ]);
+  }, [multipleTrack, yourPlaylistAvatar, yourPlaylistStoredAvatar, avatarSrc]);
 
   useEffect(() => {
-    const playlist = trackList.length > 0 ? trackList : storedTrackArray;
-
-    if (playlist.length > 0) {
-      setTrackList(playlist);
+    if (multipleTrack.length > 0) {
+      setMultipleTrack(multipleTrack);
       if (isRandom) {
-        setShuffledTrackList(shuffledTrackList);
+        const shuffledList = shuffleArray(multipleTrack);
+        setShuffledMultipleTrack(shuffledList);
+      } else {
+        setShuffledMultipleTrack([]);
       }
     }
-    // console.log("Shuffled Track List:", shuffledTrackList);
-  }, [storedTrackArray, storedAudiosMap, setTrackList, shuffledTrackList]);
+  }, [isRandom, setMultipleTrack, setShuffledMultipleTrack]);
+
+  const displayMultipleTrack = isRandom ? shuffledMultipleTrack : multipleTrack;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -125,13 +114,10 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
 
   useEffect(() => {
     const index = currentTrackId
-      ? displayTrackList.findIndex(
-          (track) =>
-            track.id === currentTrackId || track.trackId === currentTrackId
-        )
+      ? displayMultipleTrack.findIndex((track) => track.id === currentTrackId)
       : -1;
 
-    setTrackIndex(index);
+    setMultipleTrackIndex(index);
 
     if (!isScrolling && index !== -1 && trackRefs.current[index]) {
       trackRefs.current[index].scrollIntoView({
@@ -140,23 +126,26 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
       });
     }
 
+    // console.log("Track List:", displayMultipleTrack);
     // console.log("current track id:", currentTrackId);
-  }, [currentTrackId, setTrackIndex]);
+  }, [currentTrackId, displayMultipleTrack, setMultipleTrackIndex]);
 
   useEffect(() => {
     if (!storedAudiosMap) {
       setStoredAudiosMap(false);
     }
+
+    // console.log("AlbumList storedAudiosMap:", storedAudiosMap);
   }, [storedAudiosMap]);
 
   const handleTrackPlay = (track) => {
     if (!storedAudiosMap) {
-      setStoredTrackListMap(new Map());
-      setTrackList(displayTrackList);
+      setStoredMultipleTrackMap(new Map());
+      setMultipleTrack(displayMultipleTrack);
     }
 
-    setTrackIndex(
-      displayTrackList.findIndex(
+    setMultipleTrackIndex(
+      displayMultipleTrack.findIndex(
         (t) => t.id || t.trackId === track.id || track.trackId
       )
     );
@@ -170,12 +159,12 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
       },
       track.link || track.trackLink
     );
-    setTrackList(trackList);
+    setMultipleTrack(multipleTrack);
   };
 
   const handleTrackPause = (track) => {
-    setTrackIndex(
-      displayTrackList.findIndex(
+    setMultipleTrackIndex(
+      displayMultipleTrack.findIndex(
         (t) => t.id === track.id || t.trackId === track.trackId
       )
     );
@@ -184,23 +173,20 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
 
   const isLastTrack = (track) => {
     return (
-      displayTrackList[displayTrackList.length - 1]?.id === track.id ||
-      displayTrackList[displayTrackList.length - 1]?.trackId === track.trackId
+      displayMultipleTrack[displayMultipleTrack.length - 1]?.id === track.id
     );
   };
 
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
-        {!findPlaylistItem && !trackList.length ? (
+        {!findPlaylistItem && !multipleTrack.length ? (
           <div className={cx("yourPlaylist-null")}>
-            <h1 className={cx("yourPlaylist-notify")}>
-              {t("playlistNull")} {""} "{yourPlaylistName}"
-            </h1>
+            <h1 className={cx("yourPlaylist-notify")}>{t("playlistNull")}</h1>
           </div>
         ) : (
           <div className={cx("tracks")}>
-            {displayTrackList.map((track, index) => (
+            {displayMultipleTrack.map((track, index) => (
               <div
                 ref={(el) => (trackRefs.current[index] = el)}
                 className={cx("track-box", {
@@ -254,17 +240,30 @@ function PlaylistModeList({ trackList, findPlaylistItem, yourPlaylistName }) {
                 <div className={cx("track-info")}>
                   <Link
                     className={cx("track-link")}
-                    to={routesConfig.track
-                      .replace(
-                        `:stageName`,
-                        track.stageName ||
-                          track.publisher ||
-                          track.trackPerformer.replace(/\//g, "-")
-                      )
-                      .replace(
-                        `:trackTitle`,
-                        track.title || track.trackTitle.replace(/\//g, "-")
-                      )}
+                    to={
+                      track.type === "Podcast"
+                        ? routesConfig.podcastAudioPage
+                            .replace(
+                              `:publisher`,
+                              track.publisher.replace(/\//g, "-")
+                            )
+                            .replace(
+                              `:title`,
+                              track.title ||
+                                track.trackTitle.replace(/\//g, "-")
+                            )
+                        : routesConfig.track
+                            .replace(
+                              `:stageName`,
+                              track.stageName ||
+                                track.trackPerformer.replace(/\//g, "-")
+                            )
+                            .replace(
+                              `:trackTitle`,
+                              track.title ||
+                                track.trackTitle.replace(/\//g, "-")
+                            )
+                    }
                   />
                   <h4 className={cx("track-title")}>
                     {track.title || track.trackTitle}

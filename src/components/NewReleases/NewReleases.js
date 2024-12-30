@@ -12,10 +12,10 @@ import {
 
 import Navigation from "../Navigation";
 import NewReleasesBox from "../NewReleasesBox";
-import RowColHomePage from "../GridSystem/RowColHomePage";
+import RowColHomePage from "../../styles/GridSystem/RowColHomePage";
 
-import { useTrackInfo } from "../TrackInfoProvider";
-import { useYourPlaylist } from "../YourPlaylistProvider";
+import { useTrackInfo } from "../../context/TrackInfoProvider";
+import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 import { useTranslation } from "react-i18next";
 import { useScroll } from "~/hooks";
 

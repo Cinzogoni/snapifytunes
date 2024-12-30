@@ -7,7 +7,6 @@ function Track({
   info,
   social,
   list,
-
   PlaylistMode,
   wrapperPlaylistMode,
   framePlaylistMode,

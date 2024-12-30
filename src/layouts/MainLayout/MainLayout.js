@@ -6,7 +6,7 @@ import AudioPlayer from "./AudioPlayer";
 
 // import PropTypes from "prop-types";
 import Sidebar from "./SideBar/Sidebar";
-import GridSystem from "~/components/GridSystem";
+import GridSystem from "~/styles/GridSystem";
 
 const cx = classNames.bind(styles);
 

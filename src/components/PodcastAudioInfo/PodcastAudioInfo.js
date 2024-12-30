@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./PodcastAudioInfo.module.scss";
 
-import { useAudioPlayer } from "../AudioPlayerProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -102,7 +102,21 @@ function PodcastAudioInfo({
               trackType={type}
               //
               isStatus={id === currentTrackId}
-              onPlay={() =>
+              onPlay={() => {
+                setSingleTrack([]);
+
+                const tracks = {
+                  trackId: id,
+                  trackTitle: title,
+                  trackPerformer: publisher,
+                  trackLink: link,
+                };
+
+                setSingleTrack((prevSingleTrack) => [
+                  ...prevSingleTrack,
+                  tracks,
+                ]);
+
                 handlePlay(
                   id,
                   {
@@ -110,8 +124,8 @@ function PodcastAudioInfo({
                     trackPerformer: publisher,
                   },
                   link
-                )
-              }
+                );
+              }}
               onPause={() => handlePause(id)}
               onLoop={() => handleLoop()}
               activeLoopClick={activeLoopClick}

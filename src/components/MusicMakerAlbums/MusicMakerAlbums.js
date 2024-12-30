@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 import { Link } from "react-router-dom";
 
-import GridSystem from "../GridSystem";
+import GridSystem from "../../styles/GridSystem";
 import routesConfig from "~/config/routes";
 
 function MusicMakerAlbums({ musicAlbums }) {
@@ -33,6 +33,7 @@ function MusicMakerAlbums({ musicAlbums }) {
                 colSM={cx("sm-6")}
                 colS={cx("s-3")}
                 colMo={cx("mo-4")}
+                colMi={cx("mi-6")}
               >
                 <div className={cx("frame")}>
                   <div className={cx("boxes")}>

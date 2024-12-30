@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./TrackInfo.module.scss";
 const cx = classNames.bind(styles);
 
-import { useAudioPlayer } from "../AudioPlayerProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 
 import { useTranslation } from "react-i18next";
 
@@ -24,6 +24,8 @@ function TrackInfo({
   releaseDay,
   streamed,
   linkTo,
+  publisher,
+  author,
 }) {
   const {
     currentTrackId,
@@ -32,7 +34,7 @@ function TrackInfo({
     handleLoop,
     activeLoopClick,
     setActiveLoopClick,
-    setTrackList,
+    setSingleTrack,
   } = useAudioPlayer();
 
   const { t } = useTranslation();
@@ -48,7 +50,7 @@ function TrackInfo({
 
         <div className={cx("info")}>
           <h3 className={cx("title")}>{title}</h3>
-          <h4 className={cx("performer")}>{stageName}</h4>
+          <h4 className={cx("performer")}>{stageName || publisher}</h4>
           <h5 className={cx("type")}>{trackType}</h5>
           <h5 className={cx("genre")}>{genre}</h5>
           <h5 className={cx("release-day")}>
@@ -98,7 +100,7 @@ function TrackInfo({
               //
               isStatus={id === currentTrackId}
               onPlay={() => {
-                setTrackList([]);
+                setSingleTrack([]);
 
                 const tracks = {
                   trackId: id,
@@ -107,7 +109,10 @@ function TrackInfo({
                   trackLink: link,
                 };
 
-                setTrackList((prevTrackList) => [...prevTrackList, tracks]);
+                setSingleTrack((prevSingleTrack) => [
+                  ...prevSingleTrack,
+                  tracks,
+                ]);
                 handlePlay(
                   id,
                   {

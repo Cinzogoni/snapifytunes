@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./PodcastAudioPage.module.scss";
 
 import { useParams } from "react-router-dom";
-import { useTrackInfo } from "~/components/TrackInfoProvider";
+import { useTrackInfo } from "~/context/TrackInfoProvider";
 import { useTranslation } from "react-i18next";
 
 import Track from "~/components/Track";

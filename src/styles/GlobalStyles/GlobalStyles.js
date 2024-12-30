@@ -1,4 +1,4 @@
-import "~/components/GlobalStyles/GlobalStyles.module.scss";
+import "~/styles/GlobalStyles/GlobalStyles.module.scss";
 import { memo } from "react";
 
 function GlobalStyles({ children }) {

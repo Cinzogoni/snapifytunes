@@ -7,10 +7,10 @@ import { faListCheck } from "@fortawesome/free-solid-svg-icons";
 
 import { useTranslation } from "react-i18next";
 
-import { useYourPlaylist } from "../YourPlaylistProvider";
-import { useSearchFocus } from "../SearchFocusProvider/SearchFocusProvider";
-import { useUser } from "../UserProvider";
-import { useModal } from "../ModalProvider";
+import { useYourPlaylist } from "../../context/YourPlaylistProvider";
+import { useSearchFocus } from "../../context/SearchFocusProvider";
+import { useUser } from "../../context/UserProvider";
+import { useModal } from "../../context/ModalProvider";
 
 import Tippy from "@tippyjs/react";
 import YourPlaylistBox from "../YourPlaylistBox";

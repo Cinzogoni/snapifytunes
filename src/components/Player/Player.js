@@ -6,9 +6,9 @@ import { useRef, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { Link } from "react-router-dom";
-import { useAudioPlayer } from "../AudioPlayerProvider";
-import { useSearchFocus } from "../SearchFocusProvider/SearchFocusProvider";
-import { useYourPlaylist } from "../YourPlaylistProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
+import { useSearchFocus } from "../../context/SearchFocusProvider";
+import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 
 import routesConfig from "~/config/routes";
 
@@ -127,8 +127,8 @@ const Player = ({
     setVolume,
     isTrackEnded,
     setIsTrackEnded,
-    trackIndex,
-    trackList,
+    multipleTrackIndex,
+    multipleTrack,
   } = useAudioPlayer();
   const { t } = useTranslation();
   const { focus } = useSearchFocus();
@@ -181,7 +181,7 @@ const Player = ({
     : linkToTrack;
 
   const handlePlaylistMode = () => {
-    if (trackList.length < 1) {
+    if (multipleTrack.length < 1) {
       setIsVisible(false);
       setActivePlaylist(false);
       setShowPlaylist(false);
@@ -196,7 +196,9 @@ const Player = ({
       setTimeout(() => {
         setShowTooltip(false);
       }, 1500);
-    } else if (trackList.length > 0) {
+    }
+
+    if (multipleTrack.length > 0) {
       setIsVisible(false);
       setShowPlaylist(false);
       setActivePlaylist(false);
@@ -209,20 +211,6 @@ const Player = ({
 
       setActiveModeList((prev) => !prev);
       setShowPlaylistMode((prev) => !prev);
-    } else {
-      setShowPlaylist(false);
-      setActivePlaylist(false);
-      setShowNotify(false);
-
-      setIsNewReleasesVisible(false);
-      setActiveNewReleasesPlaylist(false);
-      setShowNewReleasesPlaylist(false);
-      setShowNewReleasesNotify(false);
-
-      setShowTooltip1(true);
-      setTimeout(() => {
-        setShowTooltip1(false);
-      }, 1500);
     }
   };
 
@@ -243,9 +231,9 @@ const Player = ({
 
   useEffect(() => {
     // console.log("Player:");
-    // console.log("Track list:", trackList);
-    // console.log("Track index:", trackIndex);
-  }, [trackList, trackIndex]);
+    // console.log("Track list:", multipleTrack);
+    // console.log("Track index:", multipleTrackIndex);
+  }, [multipleTrack, multipleTrackIndex]);
 
   useEffect(() => {
     const player = playerRefs.current;
@@ -280,7 +268,7 @@ const Player = ({
   const handlePlayClick = (id) => {
     if (id) {
       setCurrentTrackId(id);
-      setCurrentTrack(trackList[trackIndex]);
+      setCurrentTrack(multipleTrack[multipleTrackIndex]);
     }
 
     setTimeout(() => {
@@ -311,7 +299,7 @@ const Player = ({
   };
 
   const handleRandomClick = () => {
-    if (trackList.length > 1) {
+    if (multipleTrack.length > 1) {
       const newActiveClick = !activeRandomClick;
       setActiveRandomClick(newActiveClick);
       onRandom(newActiveClick);
@@ -325,10 +313,10 @@ const Player = ({
   };
 
   const handleNextClick = () => {
-    const nextIndex = (trackIndex + 1) % trackList.length;
-    const nextTrack = trackList[nextIndex];
+    const nextIndex = (multipleTrackIndex + 1) % multipleTrack.length;
+    const nextTrack = multipleTrack[nextIndex];
 
-    if (trackList.length > 1) {
+    if (multipleTrack.length > 1) {
       handlePlayClick(nextTrack.id);
       onNext();
       setActiveClick("nextTrack-bg");
@@ -341,10 +329,11 @@ const Player = ({
   };
 
   const handlePrevClick = () => {
-    const prevIndex = (trackIndex - 1 + trackList.length) % trackList.length;
-    const prevTrack = trackList[prevIndex];
+    const prevIndex =
+      (multipleTrackIndex - 1 + multipleTrack.length) % multipleTrack.length;
+    const prevTrack = multipleTrack[prevIndex];
 
-    if (trackList.length > 1) {
+    if (multipleTrack.length > 1) {
       handlePlayClick(prevTrack.id);
       onPrev();
       setIsTrackEnded(false);

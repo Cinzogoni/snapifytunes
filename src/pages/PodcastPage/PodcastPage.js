@@ -14,8 +14,8 @@ import PodcastAudioItem from "~/components/PodcastAudioItem";
 import PodcastInfo from "~/components/PodcastInfo";
 import PodcastAudioList from "~/components/PodcastAudioList";
 
-import { useTrackInfo } from "~/components/TrackInfoProvider";
-import { useSearchFocus } from "~/components/SearchFocusProvider/SearchFocusProvider";
+import { useTrackInfo } from "~/context/TrackInfoProvider";
+import { useSearchFocus } from "~/context/SearchFocusProvider";
 import { useTranslation } from "react-i18next";
 
 import Track from "~/components/Track";

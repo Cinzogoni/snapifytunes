@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 import { useState } from "react";
-import { useModal } from "../ModalProvider";
+import { useModal } from "../../context/ModalProvider";
 import { useTranslation } from "react-i18next";
-import { useUser } from "../UserProvider";
+import { useUser } from "../../context/UserProvider";
 
 function SignUpForm({ onSignUp }) {
   const { t } = useTranslation();

@@ -1,6 +1,6 @@
-import { useTrackInfo } from "~/components/TrackInfoProvider";
-import { useUser } from "../UserProvider";
-import { useYourPlaylist } from "../YourPlaylistProvider";
+import { useTrackInfo } from "~/context/TrackInfoProvider";
+import { useUser } from "../../context/UserProvider";
+import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 
 import Track from "../Track";
 import PlaylistModeInfo from "../PlaylistModeInfo";
@@ -9,7 +9,7 @@ import PlaylistModeWrapList from "../PlaylistModeWrapList";
 function PlaylistMode() {
   const { albumName, albumPerformer, topic } = useTrackInfo();
   const { userName, yourPlaylistName } = useUser();
-  const { playlistItem } = useYourPlaylist();
+  const { playlistItem, multipleTrack } = useYourPlaylist();
 
   const trackInfo = {
     albumName,
@@ -34,6 +34,7 @@ function PlaylistMode() {
   // console.log("playlistItem:", playlistItem);
   // console.log("findPlaylistItem:", findPlaylistItem);
   // console.log(audioTracks);
+  // console.log(defaultTitle);
 
   return (
     <Track
@@ -42,6 +43,7 @@ function PlaylistMode() {
         <PlaylistModeWrapList
           {...trackInfo}
           audioTracks={audioTracks}
+          multipleTrack={multipleTrack}
           findPlaylistItem={findPlaylistItem}
           yourPlaylistName={yourPlaylistName}
         />

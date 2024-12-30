@@ -12,8 +12,8 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
 
-import { useUser } from "~/components/UserProvider";
-import { useModal } from "~/components/ModalProvider";
+import { useUser } from "~/context/UserProvider";
+import { useModal } from "~/context/ModalProvider";
 
 import Modal from "~/components/Modal";
 import ChangePassword from "~/components/ChangePassword";

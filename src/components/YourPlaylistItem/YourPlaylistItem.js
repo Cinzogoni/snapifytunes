@@ -9,8 +9,8 @@ import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePen, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-import { useYourPlaylist } from "../YourPlaylistProvider";
-import { useAudioPlayer } from "../AudioPlayerProvider";
+import { useYourPlaylist } from "../../context/YourPlaylistProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 
 import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
@@ -29,7 +29,7 @@ function YourPlaylistItem({
 }) {
   const { t } = useTranslation();
 
-  const { setIsRandom, setActiveRandomClick, setShuffledTrackList } =
+  const { setIsRandom, setActiveRandomClick, setShuffledMultipleTrack } =
     useAudioPlayer();
 
   const {
@@ -154,7 +154,7 @@ function YourPlaylistItem({
                   onClick={() => {
                     setIsRandom(false);
                     setActiveRandomClick(true);
-                    setShuffledTrackList([]);
+                    setShuffledMultipleTrack([]);
                   }}
                 />
 

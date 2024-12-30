@@ -9,9 +9,9 @@ import {
 
 import Navigation from "../Navigation";
 import PodcastBox from "../PodcastBox";
-import RowColHomePage from "../GridSystem/RowColHomePage";
+import RowColHomePage from "../../styles/GridSystem/RowColHomePage";
 
-import { useTrackInfo } from "../TrackInfoProvider";
+import { useTrackInfo } from "../../context/TrackInfoProvider";
 import { useTranslation } from "react-i18next";
 import { useScroll } from "~/hooks";
 

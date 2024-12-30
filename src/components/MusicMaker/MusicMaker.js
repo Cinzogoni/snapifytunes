@@ -9,10 +9,10 @@ import {
 
 import Navigation from "../Navigation";
 import MusicMakerBox from "../MusicMakerBox";
-import RowColHomePage from "../GridSystem/RowColHomePage";
+import RowColHomePage from "../../styles/GridSystem/RowColHomePage";
 
-import { useYourPlaylist } from "../YourPlaylistProvider";
-import { useTrackInfo } from "../TrackInfoProvider";
+import { useYourPlaylist } from "../../context/YourPlaylistProvider";
+import { useTrackInfo } from "../../context/TrackInfoProvider";
 import { useTranslation } from "react-i18next";
 import { useScroll } from "~/hooks";
 

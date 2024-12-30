@@ -5,7 +5,7 @@ const cx = classNames.bind(styles);
 import { useRef, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import GridSystem from "../GridSystem";
+import GridSystem from "../../styles/GridSystem";
 
 import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
@@ -41,6 +41,7 @@ function AlbumPageSocial({ socialAlbums }) {
               colSM={cx("sm-3")}
               colS={cx("s-3")}
               colMo={cx("mo-4")}
+              colMi={cx("mi-6")}
             >
               <div className={cx("boxes")}>
                 <div className={cx("box")}>

@@ -8,10 +8,10 @@ import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListCheck, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
-import { useUser } from "../UserProvider";
-import { useSearchFocus } from "../SearchFocusProvider/SearchFocusProvider";
-import { useModal } from "../ModalProvider";
-import { useYourPlaylist } from "../YourPlaylistProvider";
+import { useUser } from "../../context/UserProvider";
+import { useSearchFocus } from "../../context/SearchFocusProvider";
+import { useModal } from "../../context/ModalProvider";
+import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 
 import YourPlaylistBox from "../YourPlaylistBox";
 

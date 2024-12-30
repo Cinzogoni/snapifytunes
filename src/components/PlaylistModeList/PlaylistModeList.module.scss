@@ -86,11 +86,17 @@
 
 .track-title {
   font-size: 2.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .track-performer {
   font-size: 2.2rem;
   opacity: 0.6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .track-link {

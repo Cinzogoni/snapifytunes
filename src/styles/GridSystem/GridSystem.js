@@ -1,4 +1,4 @@
-import styles from "~/components/GridSystem/GridSystem.module.scss";
+import styles from "~/styles/GridSystem/GridSystem.module.scss";
 import classNames from "classnames/bind";
 
 import { memo } from "react";
@@ -17,6 +17,7 @@ function GridSystem({
   colSM,
   colS,
   colMo,
+  colMi,
 }) {
   const classes = cx(
     gridClass,
@@ -28,7 +29,8 @@ function GridSystem({
     colM,
     colSM,
     colS,
-    colMo
+    colMo,
+    colMi
   );
 
   return <div className={classes}>{children}</div>;

@@ -5,12 +5,12 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { useState } from "react";
 
-import GridSystem from "~/components/GridSystem";
+import GridSystem from "~/styles/GridSystem";
 import MomentBox from "~/components/MomentBox";
 import Navigation from "~/components/Navigation";
 
-import { useTrackInfo } from "~/components/TrackInfoProvider";
-import { useAudioPlayer } from "~/components/AudioPlayerProvider";
+import { useTrackInfo } from "~/context/TrackInfoProvider";
+import { useAudioPlayer } from "~/context/AudioPlayerProvider";
 
 const cx = classNames.bind(styles);
 
@@ -50,6 +50,8 @@ function MomentViewAll() {
               colM={cx("m-6")}
               colSM={cx("sm-6")}
               colS={cx("s-6")}
+              colMo={cx("mo-6")}
+              colMi={cx("mi-12")}
             >
               <div className={cx("boxes")}>
                 <div className={cx("box")}>

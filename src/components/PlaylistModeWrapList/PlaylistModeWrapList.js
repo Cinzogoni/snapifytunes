@@ -1,34 +1,25 @@
-import { useTrackInfo } from "~/components/TrackInfoProvider";
+import { useTrackInfo } from "~/context/TrackInfoProvider";
 
+import { useEffect } from "react";
 import PlaylistModeList from "../PlaylistModeList";
+import { useAudioPlayer } from "~/context/AudioPlayerProvider";
 
 function PlaylistModeWrapList({
-  albumName,
-  albumPerformer,
-  topic,
   audioTracks,
   findPlaylistItem,
   yourPlaylistName,
 }) {
-  const { musicMaker, podcast } = useTrackInfo();
+  const { multipleTrack } = useAudioPlayer();
 
-  const allAudio = [...podcast, ...musicMaker.flatMap((album) => album.albums)];
+  const combinedMultipleTrack = [...multipleTrack, ...audioTracks];
 
-  const findAudios = allAudio.find(
-    (t) =>
-      (t.albumName === albumName && t.albumPerformer === albumPerformer) ||
-      t.topic === topic
-  );
-
-  const trackList = findAudios
-    ? findAudios.tracks || findAudios.audios || []
-    : [];
-
-  const combinedTrackList = [...trackList, ...audioTracks];
+  useEffect(() => {
+    // console.log(combinedMultipleTrack);
+  }, [multipleTrack, audioTracks]);
 
   return (
     <PlaylistModeList
-      trackList={combinedTrackList}
+      multipleTrack={combinedMultipleTrack}
       findPlaylistItem={findPlaylistItem}
       yourPlaylistName={yourPlaylistName}
     />

@@ -4,7 +4,7 @@ import styles from "./PodcastAudioList.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadphones, faLink } from "@fortawesome/free-solid-svg-icons";
 
-import { useAudioPlayer } from "../AudioPlayerProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
@@ -23,12 +23,12 @@ function PodcastAudioList({ audioList }) {
     handlePlay,
     handlePause,
     isTrackEnded,
-    setTrackIndex,
-    setTrackList,
-    setShuffledTrackList,
-    shuffledTrackList,
+    setMultipleTrackIndex,
+    setMultipleTrack,
+    setShuffledMultipleTrack,
+    shuffledMultipleTrack,
     isRandom,
-    setStoredTrackListMap,
+    setStoredMultipleTrackMap,
     storedAudiosMap,
     setStoredAudiosMap,
   } = useAudioPlayer();
@@ -59,17 +59,17 @@ function PodcastAudioList({ audioList }) {
 
   useEffect(() => {
     if (audioList.length > 0) {
-      setTrackList(audioList);
+      setMultipleTrack(audioList);
       if (isRandom) {
         const shuffledList = shuffleArray(audioList);
-        setShuffledTrackList(shuffledList);
+        setShuffledMultipleTrack(shuffledList);
       }
     }
-  }, [isRandom, setTrackList, setShuffledTrackList]);
+  }, [isRandom, setMultipleTrack, setShuffledMultipleTrack]);
 
-  const displayTrackList = isRandom ? shuffledTrackList : audioList;
+  const displayMultipleTrack = isRandom ? shuffledMultipleTrack : audioList;
 
-  const sortedPodcast = displayTrackList.sort(
+  const sortedPodcast = displayMultipleTrack.sort(
     (a, b) => new Date(b.releaseDay) - new Date(a.releaseDay)
   );
 
@@ -87,10 +87,10 @@ function PodcastAudioList({ audioList }) {
 
   useEffect(() => {
     const index = currentTrackId
-      ? displayTrackList.findIndex((track) => track.id === currentTrackId)
+      ? displayMultipleTrack.findIndex((track) => track.id === currentTrackId)
       : -1;
 
-    setTrackIndex(index);
+    setMultipleTrackIndex(index);
 
     if (!isScrolling && index !== -1 && audioRefs.current[index]) {
       audioRefs.current[index].scrollIntoView({
@@ -98,7 +98,7 @@ function PodcastAudioList({ audioList }) {
         block: "center",
       });
     }
-  }, [currentTrackId, displayTrackList, setTrackIndex]);
+  }, [currentTrackId, displayMultipleTrack, setMultipleTrackIndex]);
 
   useEffect(() => {
     if (!storedAudiosMap) {
@@ -110,11 +110,13 @@ function PodcastAudioList({ audioList }) {
 
   const handleTrackPlay = (audio) => {
     if (!storedAudiosMap) {
-      setStoredTrackListMap(new Map());
-      setTrackList(displayTrackList);
+      setStoredMultipleTrackMap(new Map());
+      setMultipleTrack(displayMultipleTrack);
     }
 
-    setTrackIndex(displayTrackList.findIndex((t) => t.id === audio.id));
+    setMultipleTrackIndex(
+      displayMultipleTrack.findIndex((t) => t.id === audio.id)
+    );
     handlePlay(
       audio.id,
       {
@@ -127,12 +129,16 @@ function PodcastAudioList({ audioList }) {
   };
 
   const handleTrackPause = (audio) => {
-    setTrackIndex(displayTrackList.findIndex((t) => t.id === audio.id));
+    setMultipleTrackIndex(
+      displayMultipleTrack.findIndex((t) => t.id === audio.id)
+    );
     handlePause(audio.id);
   };
 
   const isLastTrack = (audio) => {
-    return displayTrackList[displayTrackList.length - 1]?.id === audio.id;
+    return (
+      displayMultipleTrack[displayMultipleTrack.length - 1]?.id === audio.id
+    );
   };
 
   return (

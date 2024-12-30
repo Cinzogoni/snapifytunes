@@ -5,7 +5,7 @@ const cx = classNames.bind(styles);
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { useModal } from "../ModalProvider";
+import { useModal } from "../../context/ModalProvider";
 // import { useUser } from "../UserProvider";
 
 function ForgotPasswordForm() {

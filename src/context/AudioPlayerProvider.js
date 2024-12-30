@@ -27,8 +27,9 @@ export function AudioPlayerProvider({ children }) {
 
   const [isTrackEnded, setIsTrackEnded] = useState(false);
 
-  const [trackList, setTrackList] = useState([]);
-  const [trackIndex, setTrackIndex] = useState(0);
+  const [multipleTrack, setMultipleTrack] = useState([]);
+  const [multipleTrackIndex, setMultipleTrackIndex] = useState(0);
+  const [singleTrack, setSingleTrack] = useState([]);
 
   const [volume, setVolume] = useState(1);
 
@@ -38,8 +39,10 @@ export function AudioPlayerProvider({ children }) {
   const [isLooping, setIsLooping] = useState(false);
   const [activeLoopClick, setActiveLoopClick] = useState(true);
 
-  const [shuffledTrackList, setShuffledTrackList] = useState([]);
-  const [storedTrackListMap, setStoredTrackListMap] = useState(new Map());
+  const [shuffledMultipleTrack, setShuffledMultipleTrack] = useState([]);
+  const [storedMultipleTrackMap, setStoredMultipleTrackMap] = useState(
+    new Map()
+  );
   const [storedAudiosMap, setStoredAudiosMap] = useState(false);
 
   const playerRefs = useRef(null);
@@ -80,8 +83,8 @@ export function AudioPlayerProvider({ children }) {
   }, [location.pathname, currentUrl]);
 
   useEffect(() => {
-    // console.log("track list:", trackList);
-  }, [trackList, trackIndex]);
+    console.log("Provider multipleTrack:", multipleTrack);
+  }, [multipleTrack, multipleTrackIndex]);
 
   const handleVideoPlay = () => {
     setIsVideoPlaying(true);
@@ -165,11 +168,11 @@ export function AudioPlayerProvider({ children }) {
         }
 
         if (!isLooping) {
-          if (trackList.length === 1) {
+          if (singleTrack.length === 1) {
             setIsTrackEnded(true);
           }
 
-          if (trackIndex < trackList.length - 1) {
+          if (multipleTrackIndex < multipleTrack.length - 1) {
             handleNextTrack();
           } else {
             setIsTrackEnded(true);
@@ -177,7 +180,7 @@ export function AudioPlayerProvider({ children }) {
         }
 
         if (isLooping) {
-          if (trackList.length === 1) {
+          if (multipleTrack.length === 1) {
             player.currentTime = 0;
             setIsPlaying(true);
             setIsTrackEnded(false);
@@ -186,7 +189,7 @@ export function AudioPlayerProvider({ children }) {
             player.play();
             console.log("Single track loop is active!");
           }
-          if (trackList.length > 1) {
+          if (multipleTrack.length > 1) {
             setIsPlaying(true);
             setIsTrackEnded(false);
             setListeningTime(0);
@@ -209,11 +212,11 @@ export function AudioPlayerProvider({ children }) {
   };
 
   const handleNextTrack = () => {
-    const listToUse = isRandom ? shuffledTrackList : trackList;
-    const nextIndex = (trackIndex + 1) % listToUse.length;
+    const listToUse = isRandom ? shuffledMultipleTrack : multipleTrack;
+    const nextIndex = (multipleTrackIndex + 1) % listToUse.length;
     const nextTrack = listToUse[nextIndex];
 
-    setTrackIndex(nextIndex);
+    setMultipleTrackIndex(nextIndex);
     setCurrentTrackId(nextTrack.id || nextTrack.trackId);
     setCurrentTrack({
       trackTitle: nextTrack.title || nextTrack.trackTitle,
@@ -238,11 +241,12 @@ export function AudioPlayerProvider({ children }) {
   };
 
   const handlePrevTrack = () => {
-    const listToUse = isRandom ? shuffledTrackList : trackList;
-    const prevIndex = (trackIndex - 1 + listToUse.length) % listToUse.length;
+    const listToUse = isRandom ? shuffledMultipleTrack : multipleTrack;
+    const prevIndex =
+      (multipleTrackIndex - 1 + listToUse.length) % listToUse.length;
     const prevTrack = listToUse[prevIndex];
 
-    setTrackIndex(prevIndex);
+    setMultipleTrackIndex(prevIndex);
     setCurrentTrackId(prevTrack.id || prevTrack.trackId);
     setCurrentTrack({
       trackTitle: prevTrack.title || prevTrack.trackTitle,
@@ -272,22 +276,24 @@ export function AudioPlayerProvider({ children }) {
   };
 
   const handleStoredAudiosMap = () => {
-    const newMap = new Map(storedTrackListMap);
-    const savedTrackList = newMap.get(currentUrl)?.trackList || [];
+    const newMap = new Map(storedMultipleTrackMap);
+    const savedMultipleTrack = newMap.get(currentUrl)?.multipleTrack || [];
 
     if (storedAudiosMap) {
-      if (!newMap.has(currentUrl) || savedTrackList.length <= 1) {
-        newMap.set(currentUrl, { trackList: [...trackList] });
+      if (!newMap.has(currentUrl) || savedMultipleTrack.length <= 1) {
+        newMap.set(currentUrl, { multipleTrack: [...multipleTrack] });
       }
-      if (JSON.stringify(savedTrackList) !== JSON.stringify(trackList)) {
-        setTrackList(savedTrackList);
+      if (
+        JSON.stringify(savedMultipleTrack) !== JSON.stringify(multipleTrack)
+      ) {
+        setMultipleTrack(savedMultipleTrack);
       }
     } else {
-      setTrackList(trackList);
-      newMap.set(currentUrl, { trackList: [...trackList] });
+      setMultipleTrack(multipleTrack);
+      newMap.set(currentUrl, { multipleTrack: [...multipleTrack] });
     }
 
-    setStoredTrackListMap(newMap);
+    setStoredMultipleTrackMap(newMap);
     setStoredAudiosMap((prev) => !prev);
   };
 
@@ -339,17 +345,19 @@ export function AudioPlayerProvider({ children }) {
         setIsTrackEnded,
         isVideoPlaying,
         handleVideoPlay,
-        trackList,
-        trackIndex,
-        setTrackList,
-        setTrackIndex,
-        shuffledTrackList,
-        setShuffledTrackList,
-        setStoredTrackListMap,
-        storedTrackListMap,
+        multipleTrack,
+        multipleTrackIndex,
+        setMultipleTrack,
+        setMultipleTrackIndex,
+        shuffledMultipleTrack,
+        setShuffledMultipleTrack,
+        setStoredMultipleTrackMap,
+        storedMultipleTrackMap,
         setStoredAudiosMap,
         storedAudiosMap,
         currentUrl,
+        singleTrack,
+        setSingleTrack,
       }}
     >
       {children}

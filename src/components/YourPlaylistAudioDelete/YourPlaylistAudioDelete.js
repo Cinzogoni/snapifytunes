@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./YourPlaylistAudioDelete.module.scss";
 const cx = classNames.bind(styles);
 
-import { useYourPlaylist } from "../YourPlaylistProvider";
+import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRemove } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";

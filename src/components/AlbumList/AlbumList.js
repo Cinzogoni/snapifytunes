@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadphones, faLink } from "@fortawesome/free-solid-svg-icons";
 
-import { useAudioPlayer } from "../AudioPlayerProvider";
+import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 import { useStreams } from "~/hooks/useStrreams";
 
 import { Link } from "react-router-dom";
@@ -17,7 +17,7 @@ import Player from "../Player";
 import YourPlaylistCheck from "../YourPlaylistCheck";
 import AudioShareLink from "../AudioShareLink";
 
-function AlbumList({ trackList, avatar }) {
+function AlbumList({ multipleTrack, avatar }) {
   const {
     currentTrackId,
     isPlaying,
@@ -33,11 +33,11 @@ function AlbumList({ trackList, avatar }) {
     setActiveRandomClick,
     isRandom,
     isTrackEnded,
-    setTrackIndex,
-    setTrackList,
-    setShuffledTrackList,
-    shuffledTrackList,
-    setStoredTrackListMap,
+    setMultipleTrackIndex,
+    setMultipleTrack,
+    setShuffledMultipleTrack,
+    shuffledMultipleTrack,
+    setStoredMultipleTrackMap,
     storedAudiosMap,
     setStoredAudiosMap,
   } = useAudioPlayer();
@@ -66,18 +66,18 @@ function AlbumList({ trackList, avatar }) {
   };
 
   useEffect(() => {
-    if (trackList.length > 0) {
-      setTrackList(trackList);
+    if (multipleTrack.length > 0) {
+      setMultipleTrack(multipleTrack);
       if (isRandom) {
-        const shuffledList = shuffleArray(trackList);
-        setShuffledTrackList(shuffledList);
+        const shuffledList = shuffleArray(multipleTrack);
+        setShuffledMultipleTrack(shuffledList);
       } else {
-        setShuffledTrackList([]);
+        setShuffledMultipleTrack([]);
       }
     }
-  }, [trackList, isRandom, setTrackList, setShuffledTrackList]);
+  }, [multipleTrack, isRandom, setMultipleTrack, setShuffledMultipleTrack]);
 
-  const displayTrackList = isRandom ? shuffledTrackList : trackList;
+  const displayMultipleTrack = isRandom ? shuffledMultipleTrack : multipleTrack;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,10 +93,10 @@ function AlbumList({ trackList, avatar }) {
 
   useEffect(() => {
     const index = currentTrackId
-      ? displayTrackList.findIndex((track) => track.id === currentTrackId)
+      ? displayMultipleTrack.findIndex((track) => track.id === currentTrackId)
       : -1;
 
-    setTrackIndex(index);
+    setMultipleTrackIndex(index);
 
     if (!isScrolling && index !== -1 && trackRefs.current[index]) {
       trackRefs.current[index].scrollIntoView({
@@ -105,9 +105,9 @@ function AlbumList({ trackList, avatar }) {
       });
     }
 
-    // console.log("Track List:", displayTrackList);
+    // console.log("Track List:", displayMultipleTrack);
     // console.log("current track id:", currentTrackId);
-  }, [currentTrackId, displayTrackList, setTrackIndex]);
+  }, [currentTrackId, displayMultipleTrack, setMultipleTrackIndex]);
 
   useEffect(() => {
     if (!storedAudiosMap) {
@@ -119,11 +119,13 @@ function AlbumList({ trackList, avatar }) {
 
   const handleTrackPlay = (track) => {
     if (!storedAudiosMap) {
-      setStoredTrackListMap(new Map());
-      setTrackList(displayTrackList);
+      setStoredMultipleTrackMap(new Map());
+      setMultipleTrack(displayMultipleTrack);
     }
 
-    setTrackIndex(displayTrackList.findIndex((t) => t.id === track.id));
+    setMultipleTrackIndex(
+      displayMultipleTrack.findIndex((t) => t.id === track.id)
+    );
     handlePlay(
       track.id,
       {
@@ -136,20 +138,24 @@ function AlbumList({ trackList, avatar }) {
   };
 
   const handleTrackPause = (track) => {
-    setTrackIndex(displayTrackList.findIndex((t) => t.id === track.id));
+    setMultipleTrackIndex(
+      displayMultipleTrack.findIndex((t) => t.id === track.id)
+    );
     handlePause(track.id);
   };
 
   const isLastTrack = (track) => {
-    return displayTrackList[displayTrackList.length - 1]?.id === track.id;
+    return (
+      displayMultipleTrack[displayMultipleTrack.length - 1]?.id === track.id
+    );
   };
 
-  // console.log("Album list:", displayTrackList);
+  // console.log("Album list:", displayMultipleTrack);
 
   return (
     <div className={cx("container")}>
       <div className={cx("tracks")}>
-        {displayTrackList.map((track, index) => (
+        {displayMultipleTrack.map((track, index) => (
           <div
             ref={(el) => (trackRefs.current[index] = el)}
             className={cx("track-box", {

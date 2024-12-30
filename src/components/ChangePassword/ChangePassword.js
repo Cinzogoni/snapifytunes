@@ -5,8 +5,8 @@ const cx = classNames.bind(styles);
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { useUser } from "../UserProvider";
-import { useModal } from "../ModalProvider";
+import { useUser } from "../../context/UserProvider";
+import { useModal } from "../../context/ModalProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 

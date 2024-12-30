@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 
-import { useModal } from "../ModalProvider";
+import { useModal } from "../../context/ModalProvider";
 
 function LoginForm({ onLogin, emailOrPhoneError, passwordError }) {
   const { t } = useTranslation();

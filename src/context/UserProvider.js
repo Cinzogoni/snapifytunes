@@ -11,6 +11,8 @@ import avatar from "~/assets/images/avatar/DefaultAvatar.png";
 
 import API_USER from "../Api/API_User";
 
+import loadingLogo from "~/assets/images/loading.png";
+
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
@@ -80,7 +82,33 @@ export function UserProvider({ children }) {
   );
 
   if (loading) {
-    return <h1 style={{ color: "var(--main--text-color)" }}>Loading...</h1>;
+    return (
+      <div
+        style={{
+          width: "200px",
+          height: "100%",
+          margin: "auto",
+          transform: "translateY(100%)",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignContent: "center",
+        }}
+      >
+        <img style={{ width: "200px", height: "200px" }} src={loadingLogo} />
+
+        <h1
+          style={{
+            color: "rgba(24, 113, 187, 0.8)",
+            fontSize: "2.4rem",
+            textAlign: "center",
+            marginTop: "48px",
+          }}
+        >
+          from Snapify
+        </h1>
+      </div>
+    );
   }
 
   // console.log(user);
