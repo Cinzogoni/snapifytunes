@@ -735,7 +735,7 @@ const apiMusicMaker = {
           streamed: 3049,
           trend: true,
           link: mp3Type[
-            `MusicMaker/Phan Manh Quynh/singletracks/Sau lời từ khước OST MAI  Phan Mạnh Quỳnh`
+            `MusicMaker/Phan Manh Quynh/singletracks/SauloitukhuocPMQ`
           ],
           lyric: "",
         },
@@ -1337,7 +1337,7 @@ const apiMusicMaker = {
           streamed: 325,
           trend: true,
           link: mp3Type[
-            `MusicMaker/The Southern RamBlers/singletracks/Country Roads - The Southern RamBlers`
+            `MusicMaker/The Southern RamBlers/singletracks/CRoadsTSRamBlers`
           ],
           lyric: "",
         },
