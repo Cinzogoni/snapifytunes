@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/snapifytunes/static/css/main.dba69371.css",
-    "main.js": "/snapifytunes/static/js/main.10258e25.js",
+    "main.css": "/snapifytunes/static/css/main.ec33d3c2.css",
+    "main.js": "/snapifytunes/static/js/main.7bfe5833.js",
     "reactPlayerYouTube.js": "/snapifytunes/static/js/reactPlayerYouTube.7cb33189.chunk.js",
     "reactPlayerSoundCloud.js": "/snapifytunes/static/js/reactPlayerSoundCloud.a7315f5c.chunk.js",
     "reactPlayerVimeo.js": "/snapifytunes/static/js/reactPlayerVimeo.626c4582.chunk.js",
@@ -59,7 +59,7 @@
     "static/media/Eminem  Infinite FBT Remix.mp3": "/snapifytunes/static/media/Eminem  Infinite FBT Remix.580819fbbaa4eee96201.mp3",
     "static/media/BPhuongNCTS.mp3": "/snapifytunes/static/media/BPhuongNCTS.a0ff69c3990c19e0647f.mp3",
     "static/media/Touliver x Nimbia  Get It.mp3": "/snapifytunes/static/media/Touliver x Nimbia  Get It.6665c06f7f48d1aa48a7.mp3",
-    "static/media/Sau lời từ khước OST MAI  Phan Mạnh Quỳnh.mp3": "/snapifytunes/static/media/Sau lời từ khước OST MAI  Phan Mạnh Quỳnh.1c22426e6f8f5a6c09ec.mp3",
+    "static/media/SauloitukhuocPMQ.mp3": "/snapifytunes/static/media/SauloitukhuocPMQ.1c22426e6f8f5a6c09ec.mp3",
     "static/media/Suboi  Best Friend.mp3": "/snapifytunes/static/media/Suboi  Best Friend.09cb384122fa2d91f017.mp3",
     "static/media/Eminem  Not Afraid.mp3": "/snapifytunes/static/media/Eminem  Not Afraid.b41eab5e6c2614857da3.mp3",
     "static/media/Perfume Spinning World.mp3": "/snapifytunes/static/media/Perfume Spinning World.11b6a9f9e63a0beb74d7.mp3",
@@ -108,8 +108,9 @@
     "static/media/BIBI비비  BAD SAD AND MAD.mp3": "/snapifytunes/static/media/BIBI비비  BAD SAD AND MAD.bd2e0cfc9f3a2e4c45ed.mp3",
     "static/media/BIBI비비  Umm Life.mp3": "/snapifytunes/static/media/BIBI비비  Umm Life.1ea148a32f5a132e5928.mp3",
     "static/media/MIN  WATCHING THE STARS.mp3": "/snapifytunes/static/media/MIN  WATCHING THE STARS.9f3bdbba26e08cdd516a.mp3",
-    "static/media/Country Roads - The Southern RamBlers.mp3": "/snapifytunes/static/media/Country Roads - The Southern RamBlers.6223b5c2ff1626d2d5a1.mp3",
+    "static/media/CRoadsTSRamBlers.mp3": "/snapifytunes/static/media/CRoadsTSRamBlers.6223b5c2ff1626d2d5a1.mp3",
     "static/media/TheHeavyWeight-Kenny Price.mp3": "/snapifytunes/static/media/TheHeavyWeight-Kenny Price.4d5c6702702bbe7ae349.mp3",
+    "static/media/loading.png": "/snapifytunes/static/media/loading.a37429411b4a20334fd9.png",
     "static/media/logo.png": "/snapifytunes/static/media/logo.d5d693e6503215375fc9.png",
     "static/media/ProximaNova-RegularIt.woff2": "/snapifytunes/static/media/ProximaNova-RegularIt.1836fee18c601d34fdd1.woff2",
     "static/media/ProximaNova-Bold.woff2": "/snapifytunes/static/media/ProximaNova-Bold.c84883dfcd4817e310df.woff2",
@@ -117,8 +118,8 @@
     "static/media/ProximaNova-Extrabld.woff2": "/snapifytunes/static/media/ProximaNova-Extrabld.51e73062e691a23fb801.woff2",
     "static/media/ProximaNovaT-Thin.woff2": "/snapifytunes/static/media/ProximaNovaT-Thin.bd087ed2c1c95fc74e2c.woff2",
     "index.html": "/snapifytunes/index.html",
-    "main.dba69371.css.map": "/snapifytunes/static/css/main.dba69371.css.map",
-    "main.10258e25.js.map": "/snapifytunes/static/js/main.10258e25.js.map",
+    "main.ec33d3c2.css.map": "/snapifytunes/static/css/main.ec33d3c2.css.map",
+    "main.7bfe5833.js.map": "/snapifytunes/static/js/main.7bfe5833.js.map",
     "reactPlayerYouTube.7cb33189.chunk.js.map": "/snapifytunes/static/js/reactPlayerYouTube.7cb33189.chunk.js.map",
     "reactPlayerSoundCloud.a7315f5c.chunk.js.map": "/snapifytunes/static/js/reactPlayerSoundCloud.a7315f5c.chunk.js.map",
     "reactPlayerVimeo.626c4582.chunk.js.map": "/snapifytunes/static/js/reactPlayerVimeo.626c4582.chunk.js.map",
@@ -136,7 +137,7 @@
     "845.6eb8b833.chunk.js.map": "/snapifytunes/static/js/845.6eb8b833.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dba69371.css",
-    "static/js/main.10258e25.js"
+    "static/css/main.ec33d3c2.css",
+    "static/js/main.7bfe5833.js"
   ]
 }
