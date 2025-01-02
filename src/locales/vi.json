@@ -100,5 +100,15 @@
     "audioBook": "Sách Nói",
     "audioDrama": "Kịch Nói",
     "narrativeStorytelling": "Chuyện Tự Sự"
-  }
+  },
+
+  "description": {
+    "podcastDescription": "Nhiều tác giả"
+  },
+  "publisher": "Nhà xuất bản",
+  "author": "Tác giả",
+  "podcastAudioDes": "Đang cập nhật mô tả âm thanh",
+  "tooltip": "Không có danh sách đã phát!",
+  "tooltip1": "Không có danh sách đã lưu!",
+  "suggestions": "Gợi ý cho bạn"
 }

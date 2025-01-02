@@ -100,5 +100,14 @@
     "audioBook": "Audiobook",
     "audioDrama": "Audio Drama",
     "narrativeStorytelling": "Narrative Storytelling"
-  }
+  },
+  "description": {
+    "podcastDescription": "Multiple authors"
+  },
+  "publisher": "Publisher",
+  "author": "Author",
+  "podcastAudioDes": "Updating audio description",
+  "tooltip": "No played list available!",
+  "tooltip1": "No saved list available!",
+  "suggestions": "​Suggest"
 }
