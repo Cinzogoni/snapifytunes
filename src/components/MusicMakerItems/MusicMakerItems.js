@@ -6,7 +6,7 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 const cx = classNames.bind(styles);
 function MusicMakerItems({
@@ -14,7 +14,7 @@ function MusicMakerItems({
   musicMakerStageName,
   musicMakerRole,
 }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   const rolesSplit = (musicMakerRole || "")
     .split("/")

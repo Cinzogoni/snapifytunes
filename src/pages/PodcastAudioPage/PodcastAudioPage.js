@@ -3,7 +3,7 @@ import styles from "./PodcastAudioPage.module.scss";
 
 import { useParams } from "react-router-dom";
 import { useTrackInfo } from "~/context/TrackInfoProvider";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import Track from "~/components/Track";
 import PodcastAudioInfo from "~/components/PodcastAudioInfo";
@@ -11,7 +11,7 @@ import PodcastAudioInfo from "~/components/PodcastAudioInfo";
 const cx = classNames.bind(styles);
 
 function PodcastAudioPage() {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { podcast } = useTrackInfo();
   const { publisher } = useParams();
 

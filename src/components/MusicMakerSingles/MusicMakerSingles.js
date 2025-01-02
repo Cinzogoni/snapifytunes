@@ -3,7 +3,7 @@ import styles from "./MusicMakerSingles.module.scss";
 const cx = classNames.bind(styles);
 
 import { useState, useEffect, useRef } from "react";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 
@@ -25,7 +25,7 @@ function MusicMakerSingles({ musicSingles }) {
     isTrackEnded,
     setMultipleTrackIndex,
   } = useAudioPlayer();
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   const sortedMusicSingles = musicSingles.sort(
     (a, b) => new Date(b.releaseDay) - new Date(a.releaseDay)

@@ -4,7 +4,7 @@ const cx = classNames.bind(styles);
 
 import { useState, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import avatar from "~/assets/images/avatar/DefaultAvatar.png";
 import Tippy from "@tippyjs/react";
@@ -19,7 +19,7 @@ import { useUser } from "../../context/UserProvider";
 import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 
 function Image() {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { setActivePlaylist, setIsVisible, setShowPlaylist } =
     useYourPlaylist();
   const { currentUser, setCurrentUser, selectedAvatar, defaultAvatar } =

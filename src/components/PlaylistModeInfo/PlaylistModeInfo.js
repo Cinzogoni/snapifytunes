@@ -7,10 +7,10 @@ import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbTack } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 function PlaylistModeInfo({ defaultTitle }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const {
     handleStoredAudiosMap,
     storedAudiosMap,
@@ -27,7 +27,7 @@ function PlaylistModeInfo({ defaultTitle }) {
   const title = multipleTrack[0]?.name;
 
   useEffect(() => {
-    console.log(multipleTrack);
+    // console.log(multipleTrack);
   }, [multipleTrack, storedTrackArray, storedAudiosMap]);
 
   return (

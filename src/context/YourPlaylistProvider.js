@@ -8,7 +8,7 @@ import React, {
 
 import { useUser } from "./UserProvider";
 import { useModal } from "./ModalProvider";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import Modal from "../components/Modal/Modal";
@@ -17,7 +17,7 @@ import YourPlaylistAdd from "../components/YourPlaylistAdd";
 const YourPlaylistStates = createContext();
 
 export function YourPlaylistProvider({ children }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { currentUser } = useUser();
   const {
     openAddPlaylistItemModal,

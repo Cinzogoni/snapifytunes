@@ -15,11 +15,11 @@ import MomentBox from "../MomentBox";
 
 import { useTrackInfo } from "../../context/TrackInfoProvider";
 import { useAudioPlayer } from "../../context/AudioPlayerProvider";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 const cx = classNames.bind(styles);
 function Moment() {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { moment } = useTrackInfo();
   const { handleVideoPlay, isVideoPlaying } = useAudioPlayer();
 

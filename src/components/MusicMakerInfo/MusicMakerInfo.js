@@ -4,14 +4,14 @@ const cx = classNames.bind(styles);
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 
 import Navigation from "../Navigation";
 
 function MusicMakerInfo({ musicMakerInfo }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { setShowNewReleasesPlaylist, setActiveNewReleasesPlaylist } =
     useYourPlaylist();
 

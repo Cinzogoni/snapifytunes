@@ -6,14 +6,14 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { useUser } from "~/context/UserProvider";
 import { useModal } from "~/context/ModalProvider";
 import { useYourPlaylist } from "~/context/YourPlaylistProvider";
 
 function SidebarPlaylists({ children }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { currentUser } = useUser();
   const { openLoginModal, openSignUpModal } = useModal();
   const { playlistItem, clickSidebarAdd, handleAddPlaylistModal } =

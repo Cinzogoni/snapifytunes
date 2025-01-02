@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./YourPlaylistAdd.module.scss";
 const cx = classNames.bind(styles);
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 import { useUser } from "../../context/UserProvider";
 
@@ -24,7 +24,7 @@ function YourPlaylistAdd({
   setShowNewReleasesPlaylist,
   trackId,
 }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { handleEditPlaylistItem, itemIndex, playlistItem, isEditing } =
     useYourPlaylist();
   const { userName, yourPlaylistName } = useUser();

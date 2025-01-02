@@ -3,14 +3,12 @@ import styles from "./ForgotPasswordForm.module.scss";
 const cx = classNames.bind(styles);
 
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { useModal } from "../../context/ModalProvider";
-// import { useUser } from "../UserProvider";
 
 function ForgotPasswordForm() {
-  const { t } = useTranslation();
-  // const { user } = useUser();
+  const { t } = useLangSwitcher();
   const { closeForgotPasswordModal, openLoginModal } = useModal();
 
   const [emailOrPhone, setEmailOrPhone] = useState("");

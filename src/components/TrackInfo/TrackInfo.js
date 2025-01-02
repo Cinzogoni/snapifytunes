@@ -4,7 +4,7 @@ const cx = classNames.bind(styles);
 
 import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadphones, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -37,7 +37,7 @@ function TrackInfo({
     setSingleTrack,
   } = useAudioPlayer();
 
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   return (
     <div className={cx("wrapper")}>

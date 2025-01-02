@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faStar } from "@fortawesome/free-solid-svg-icons";
 
 import { useAudioPlayer } from "../../context/AudioPlayerProvider";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
@@ -22,7 +22,7 @@ function AlbumInfo({ albumInfo }) {
     setActiveRandomClick,
     isRandom,
   } = useAudioPlayer();
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   const stageName =
     albumInfo && albumInfo.albumPerformer ? albumInfo.albumPerformer : "";

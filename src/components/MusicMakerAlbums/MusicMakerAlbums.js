@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./MusicMakerAlbums.module.scss";
 const cx = classNames.bind(styles);
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ import GridSystem from "../../styles/GridSystem";
 import routesConfig from "~/config/routes";
 
 function MusicMakerAlbums({ musicAlbums }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   const sortedMusicAlbums = musicAlbums
     .sort((a, b) => new Date(b.releaseDay) - new Date(a.releaseDay))

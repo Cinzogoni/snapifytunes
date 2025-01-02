@@ -16,14 +16,14 @@ import PodcastAudioList from "~/components/PodcastAudioList";
 
 import { useTrackInfo } from "~/context/TrackInfoProvider";
 import { useSearchFocus } from "~/context/SearchFocusProvider";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import Track from "~/components/Track";
 
 const cx = classNames.bind(styles);
 
 function PodcastPage() {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { podcast } = useTrackInfo();
   const { topic } = useParams();
   const { setFocus } = useSearchFocus();

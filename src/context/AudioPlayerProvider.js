@@ -83,8 +83,9 @@ export function AudioPlayerProvider({ children }) {
   }, [location.pathname, currentUrl]);
 
   useEffect(() => {
-    console.log("Provider multipleTrack:", multipleTrack);
-  }, [multipleTrack, multipleTrackIndex]);
+    // console.log("Provider multipleTrack:", multipleTrack);
+    // console.log("Provider singleTrack:", singleTrack);
+  }, [multipleTrack, multipleTrackIndex, singleTrack]);
 
   const handleVideoPlay = () => {
     setIsVideoPlaying(true);
@@ -103,13 +104,16 @@ export function AudioPlayerProvider({ children }) {
         await player.load();
       }
 
-      setTrackLink(audioLink);
-      setCurrentTrack(track);
-      setCurrentTrackId(trackId);
-      setTrackType(track.type || track.trackType || "Unknown Type");
-      setIsTrackEnded(false);
-      setIsPlaying(true);
+      if (!multipleTrack) {
+        setCurrentTrackId(trackId);
+        setCurrentTrack(track);
+        setTrackLink(audioLink);
+        setTrackType(track.type || track.trackType || "Unknown Type");
+      }
+
       setIsVideoPlaying(false);
+      setIsPlaying(true);
+      setIsTrackEnded(false);
       await player.play();
 
       if (checkListeningTime >= player.duration) {
@@ -237,7 +241,7 @@ export function AudioPlayerProvider({ children }) {
       },
       nextTrack.link || nextTrack.trackLink
     );
-    // console.log("Next Track!", nextTrack);
+    console.log("Next Track!", nextTrack);
   };
 
   const handlePrevTrack = () => {
@@ -267,7 +271,7 @@ export function AudioPlayerProvider({ children }) {
       },
       prevTrack.link || prevTrack.trackLink
     );
-    // console.log("Prev Track!", prevTrack);
+    console.log("Prev Track!", prevTrack);
   };
 
   const handleRandomTrack = () => {

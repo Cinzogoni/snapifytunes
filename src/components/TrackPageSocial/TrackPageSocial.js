@@ -7,12 +7,12 @@ import routesConfig from "~/config/routes";
 
 import { useState, useEffect, useRef } from "react";
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import GridSystem from "../../styles/GridSystem";
 
 function TrackPageSocial({ socialTracks }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const [shuffledTracks, setShuffledTracks] = useState([]);
   const isShuffled = useRef(false);
 

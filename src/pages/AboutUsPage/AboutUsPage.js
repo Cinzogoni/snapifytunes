@@ -7,10 +7,10 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import Navigation from "~/components/Navigation";
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 function AboutUsPage() {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   return (
     <div className={cx("container")}>

@@ -3,14 +3,14 @@ import styles from "./LoginForm.module.scss";
 const cx = classNames.bind(styles);
 
 import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 import { useModal } from "../../context/ModalProvider";
 
 function LoginForm({ onLogin, emailOrPhoneError, passwordError }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { closeLoginModal, openSignUpModal, openForgotPasswordModal } =
     useModal();
   const [showPassword, setShowPassword] = useState(false);

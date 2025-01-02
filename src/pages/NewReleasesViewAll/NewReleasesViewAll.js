@@ -16,13 +16,13 @@ import MusicTrackItem from "~/components/MusicTrackItem";
 import Navigation from "~/components/Navigation";
 
 import { useTrackInfo } from "~/context/TrackInfoProvider";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 const cx = classNames.bind(styles);
 function NewReleasesViewAll() {
   const { musicMaker } = useTrackInfo();
   const { setFocus } = useSearchFocus();
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   const [searchValue, setSearchValue] = useState(``);
   const [searchResult, setSearchResult] = useState([]);

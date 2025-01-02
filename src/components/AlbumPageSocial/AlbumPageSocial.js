@@ -3,7 +3,7 @@ import styles from "./AlbumPageSocial.module.scss";
 const cx = classNames.bind(styles);
 
 import { useRef, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import GridSystem from "../../styles/GridSystem";
 
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
 
 function AlbumPageSocial({ socialAlbums }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const [shuffledAlbums, setShuffledAlbums] = useState([]);
   const isShuffled = useRef(false);
 

@@ -5,7 +5,7 @@ const cx = classNames.bind(styles);
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListCheck } from "@fortawesome/free-solid-svg-icons";
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 import { useSearchFocus } from "../../context/SearchFocusProvider";
@@ -28,7 +28,7 @@ function YourPlaylistCheck({
   checkFix,
   positionFix,
 }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { focus } = useSearchFocus();
   const { currentUser } = useUser();
   const { openLoginModal } = useModal();

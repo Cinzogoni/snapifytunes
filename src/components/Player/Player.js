@@ -3,7 +3,7 @@ import styles from "./Player.module.scss";
 const cx = classNames.bind(styles);
 
 import { useRef, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { Link } from "react-router-dom";
 import { useAudioPlayer } from "../../context/AudioPlayerProvider";
@@ -130,7 +130,7 @@ const Player = ({
     multipleTrackIndex,
     multipleTrack,
   } = useAudioPlayer();
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { focus } = useSearchFocus();
 
   const {

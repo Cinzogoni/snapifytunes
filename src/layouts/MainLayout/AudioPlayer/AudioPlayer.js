@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { useAudioPlayer } from "~/context/AudioPlayerProvider";
 
@@ -30,7 +30,7 @@ function AudioPlayer() {
     setIsRandom,
     currentUrl,
   } = useAudioPlayer();
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   useEffect(() => {
     if (!isPlaying && playerRefs.current) {

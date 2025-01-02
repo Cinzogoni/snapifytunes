@@ -5,7 +5,7 @@ const cx = classNames.bind(styles);
 import TrackInfo from "~/components/TrackInfo";
 
 import { useParams, useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { useTrackInfo } from "~/context/TrackInfoProvider";
 import { useAudioPlayer } from "~/context/AudioPlayerProvider";
@@ -17,7 +17,7 @@ import TrackPageSocial from "~/components/TrackPageSocial";
 import { useEffect } from "react";
 
 function TrackPage() {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { multipleTrack } = useAudioPlayer();
   const { musicMaker } = useTrackInfo();
   const { stageName, trackTitle } = useParams();

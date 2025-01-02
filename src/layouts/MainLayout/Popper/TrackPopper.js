@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 import styles from "./TrackPopper.module.scss";
 const cx = classNames.bind(styles);
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 function TrackPopper({
   children,
@@ -13,7 +13,7 @@ function TrackPopper({
   trackGenre,
   releaseDay,
 }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   return (
     <Tippy

@@ -12,12 +12,12 @@ import PodcastBox from "../PodcastBox";
 import RowColHomePage from "../../styles/GridSystem/RowColHomePage";
 
 import { useTrackInfo } from "../../context/TrackInfoProvider";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 import { useScroll } from "~/hooks";
 
 const cx = classNames.bind(styles);
 function Podcast() {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { podcast } = useTrackInfo();
 
   const { handleScroll, transformValue, activeMove } = useScroll(

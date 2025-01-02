@@ -3,7 +3,7 @@ import styles from "./ChangePassword.module.scss";
 const cx = classNames.bind(styles);
 
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { useUser } from "../../context/UserProvider";
 import { useModal } from "../../context/ModalProvider";
@@ -13,7 +13,7 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import ChangePasswordService from "~/services/ChangePassService";
 
 function ChangePassword() {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { currentUser, setCurrentUser } = useUser();
   const { openLoginModal, closeChangePasswordModal } = useModal();
 

@@ -16,7 +16,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 import { useModal } from "~/context/ModalProvider";
 import { useUser } from "~/context/UserProvider";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import Modal from "~/components/Modal/Modal";
 import LoginForm from "~/components/LoginForm";
@@ -24,7 +24,7 @@ import SignUpForm from "~/components/SignUpForm";
 import ForgotPasswordForm from "~/components/ForgotPasswordForm";
 
 function Header() {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { currentUser, setCurrentUser, user } = useUser();
   const {
     isLoginOpen,

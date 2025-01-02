@@ -5,10 +5,10 @@ const cx = classNames.bind(styles);
 import routesConfig from "~/config/routes";
 import { Link } from "react-router-dom";
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 function Podcast({ podcastAvatar, podcastTopic, podcastDescription }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   return (
     <div className={cx("container")}>
       <Link

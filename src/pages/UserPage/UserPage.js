@@ -4,7 +4,7 @@ const cx = classNames.bind(styles);
 
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -19,7 +19,7 @@ import Modal from "~/components/Modal";
 import ChangePassword from "~/components/ChangePassword";
 
 function UserPage() {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   const navigate = useNavigate();
 

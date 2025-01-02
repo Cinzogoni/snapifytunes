@@ -5,25 +5,17 @@ import { useCallback, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
-// import { useLanguage } from "~/context/LanguageProvider";
-import { useTranslation } from "react-i18next";
+
+import { Link } from "react-router-dom";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import Tippy from "@tippyjs/react";
 
-import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
 
 const cx = classNames.bind(styles);
 function SidebarSupports() {
-  const { t } = useTranslation();
-  const { i18n } = useTranslation();
-  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
-
-  const changeLanguage = (lang) => {
-    i18n.changeLanguage(lang);
-    setCurrentLanguage(lang);
-  };
-  // const { currentLanguage, changeLanguage } = useLanguage();
+  const { currentLanguage, changeLanguage, t } = useLangSwitcher();
   const [visible, setVisible] = useState(false);
 
   const handleShowHide = useCallback(() => {

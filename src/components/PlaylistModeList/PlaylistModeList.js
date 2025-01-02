@@ -3,7 +3,7 @@ import styles from "./PlaylistModeList.module.scss";
 const cx = classNames.bind(styles);
 
 import { useEffect, useRef, useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
@@ -13,7 +13,7 @@ import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 import Player from "../Player";
 
 function PlaylistModeList({ multipleTrack, findPlaylistItem }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const {
     currentTrackId,
     handlePlay,
@@ -38,7 +38,7 @@ function PlaylistModeList({ multipleTrack, findPlaylistItem }) {
     setStoredAudiosMap,
   } = useAudioPlayer();
 
-  console.log("Playlist mode multipleTrack:", multipleTrack);
+  // console.log("Playlist mode multipleTrack:", multipleTrack);
 
   const trackRefs = useRef([]);
   const [isScrolling, setIsScrolling] = useState(false);

@@ -20,7 +20,11 @@ import { MainLayout } from "~/layouts";
 
 const publicRouter = [
   { path: routesConfig.home, component: Home, layout: MainLayout },
-  { path: routesConfig.aboutUs, component: AboutUsPage, layout: MainLayout },
+  {
+    path: routesConfig.aboutUs,
+    component: AboutUsPage,
+    layout: MainLayout,
+  },
   {
     path: routesConfig.helpCenter,
     component: HelpCenterPage,

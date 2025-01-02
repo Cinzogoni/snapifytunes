@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import { useDebounce } from "~/hooks";
 import { useTrackInfo } from "~/context/TrackInfoProvider";
 import { useSearchFocus } from "~/context/SearchFocusProvider";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import Tippy from "@tippyjs/react/headless";
 import GridSystem from "~/styles/GridSystem";
@@ -21,7 +21,7 @@ import Navigation from "~/components/Navigation";
 function MusicMakerViewAll() {
   const { musicMaker } = useTrackInfo();
   const { setFocus } = useSearchFocus();
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   const [searchValue, setSearchValue] = useState(``);
   const [searchResult, setSearchResult] = useState([]);

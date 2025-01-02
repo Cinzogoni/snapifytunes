@@ -4,7 +4,7 @@ const cx = classNames.bind(styles);
 
 import defaultAvatar from "~/assets/images/avatar/DefaultAvatar.png";
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePen, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -27,7 +27,7 @@ function YourPlaylistItem({
   trackType,
   streamed,
 }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   const { setIsRandom, setActiveRandomClick, setShuffledMultipleTrack } =
     useAudioPlayer();

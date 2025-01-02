@@ -3,7 +3,7 @@ import styles from "./PodcastAudioInfo.module.scss";
 
 import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -37,7 +37,7 @@ function PodcastAudioInfo({
     activeLoopClick,
     setActiveLoopClick,
   } = useAudioPlayer();
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   return (
     <div className={cx("wrapper")}>

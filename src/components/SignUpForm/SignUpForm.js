@@ -7,11 +7,11 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 import { useState } from "react";
 import { useModal } from "../../context/ModalProvider";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 import { useUser } from "../../context/UserProvider";
 
 function SignUpForm({ onSignUp }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { closeSignUpModal, openLoginModal } = useModal();
   const { user } = useUser();
 

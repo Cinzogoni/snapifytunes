@@ -8,7 +8,7 @@ import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import routesConfig from "~/config/routes";
 
@@ -32,7 +32,7 @@ function PodcastAudioList({ audioList }) {
     storedAudiosMap,
     setStoredAudiosMap,
   } = useAudioPlayer();
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
 
   const audioRefs = useRef([]);
   const [isScrolling, setIsScrolling] = useState(false);

@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./YourPlaylist.module.scss";
 const cx = classNames.bind(styles);
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 import { useEffect } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,7 +23,7 @@ function YourPlaylist({
   caretNone,
   yourPlaylistNone,
 }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { currentUser } = useUser();
   const { focus } = useSearchFocus();
   const { openLoginModal } = useModal();

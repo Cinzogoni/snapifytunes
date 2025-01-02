@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./YourPlaylistBox.module.scss";
 const cx = classNames.bind(styles);
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -12,7 +12,7 @@ import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 import YourPlaylistItem from "../YourPlaylistItem";
 
 function YourPlaylistBox(audioProps) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const {
     playlistItem,
     clickFooterAdd,

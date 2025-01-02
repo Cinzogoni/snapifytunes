@@ -4,7 +4,7 @@ const cx = classNames.bind(styles);
 
 import defaultAvatar from "~/assets/images/avatar/DefaultAvatar.png";
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 import { useYourPlaylist } from "../../context/YourPlaylistProvider";
@@ -29,7 +29,7 @@ function YourPlaylistInfo({
   currentUserName,
   currentItemName,
 }) {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const {
     handleLoop,
     handleRandomTrack,

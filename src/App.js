@@ -18,21 +18,24 @@ import { TrackInfoProvider } from "./context/TrackInfoProvider";
 import { AudioPlayerProvider } from "./context/AudioPlayerProvider";
 import { SearchFocusProvider } from "./context/SearchFocusProvider";
 import { YourPlaylistProvider } from "./context/YourPlaylistProvider";
+import { LangSwitcherProvider } from "./context/LangSwitcherProvider";
 
 function AppProviders({ children }) {
   return (
     <I18nextProvider i18n={i18n}>
-      <UserProvider>
-        <ModalProvider>
-          <TrackInfoProvider>
-            <AudioPlayerProvider>
-              <SearchFocusProvider>
-                <YourPlaylistProvider>{children}</YourPlaylistProvider>
-              </SearchFocusProvider>
-            </AudioPlayerProvider>
-          </TrackInfoProvider>
-        </ModalProvider>
-      </UserProvider>
+      <LangSwitcherProvider>
+        <UserProvider>
+          <ModalProvider>
+            <TrackInfoProvider>
+              <AudioPlayerProvider>
+                <SearchFocusProvider>
+                  <YourPlaylistProvider>{children}</YourPlaylistProvider>
+                </SearchFocusProvider>
+              </AudioPlayerProvider>
+            </TrackInfoProvider>
+          </ModalProvider>
+        </UserProvider>
+      </LangSwitcherProvider>
     </I18nextProvider>
   );
 }

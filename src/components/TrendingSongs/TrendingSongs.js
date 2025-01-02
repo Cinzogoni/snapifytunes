@@ -15,11 +15,11 @@ import {
 import { useTrackInfo } from "../../context/TrackInfoProvider";
 import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 
 const cx = classNames.bind(styles);
 function TrendingSongs() {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { musicMaker } = useTrackInfo();
   const { setShowNewReleasesPlaylist, setActiveNewReleasesPlaylist } =
     useYourPlaylist();

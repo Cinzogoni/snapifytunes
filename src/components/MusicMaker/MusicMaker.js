@@ -13,12 +13,12 @@ import RowColHomePage from "../../styles/GridSystem/RowColHomePage";
 
 import { useYourPlaylist } from "../../context/YourPlaylistProvider";
 import { useTrackInfo } from "../../context/TrackInfoProvider";
-import { useTranslation } from "react-i18next";
+import { useLangSwitcher } from "~/context/LangSwitcherProvider";
 import { useScroll } from "~/hooks";
 
 const cx = classNames.bind(styles);
 function MusicMaker() {
-  const { t } = useTranslation();
+  const { t } = useLangSwitcher();
   const { musicMaker } = useTrackInfo();
   const {
     setShowNewReleasesPlaylist,
