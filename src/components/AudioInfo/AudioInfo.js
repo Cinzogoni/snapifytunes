@@ -28,8 +28,8 @@ function AudioInfo() {
       <div className={cx("catalogue")}>
         {currentUser && (
           <>
-            <HobbyMoods />
-            <HobbyGenres />
+            {/* <HobbyMoods /> */}
+            {/* <HobbyGenres /> */}
           </>
         )}
 

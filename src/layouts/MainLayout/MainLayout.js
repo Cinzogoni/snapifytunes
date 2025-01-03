@@ -14,14 +14,11 @@ function MainLayout({ children }) {
   return (
     <div className={cx("container")}>
       {/* ----- HEADER ----- */}
-      <header className={cx("header")}>
-        <Header />
-      </header>
+      <header className={cx("header")}>{<Header />}</header>
 
       {/* ----- MAIN ----- */}
       <main className={cx("main")}>
         <div className={cx("sidebar")}>{<Sidebar />}</div>
-
         <section className={cx("content")}>
           <div className={cx("catalogues")}>
             <GridSystem gridClass={cx("grid")} wideClass={cx("wide")}>
@@ -32,9 +29,7 @@ function MainLayout({ children }) {
       </main>
 
       {/* ----- FOOTER ----- */}
-      <footer className={cx("footer")}>
-        <AudioPlayer />
-      </footer>
+      <footer className={cx("footer")}>{<AudioPlayer />}</footer>
     </div>
   );
 }

@@ -22,6 +22,8 @@ import Modal from "~/components/Modal/Modal";
 import LoginForm from "~/components/LoginForm";
 import SignUpForm from "~/components/SignUpForm";
 import ForgotPasswordForm from "~/components/ForgotPasswordForm";
+import LanguageSwitcher from "~/components/LanguageSwitcher";
+import { Fragment } from "react";
 
 function Header() {
   const { t } = useLangSwitcher();
@@ -76,15 +78,18 @@ function Header() {
       {currentUser ? (
         <HeaderActions />
       ) : (
-        <div className={cx("actions")}>
-          <button className={cx("sign-up")} onClick={openSignUpModal}>
-            <h5>{t("signUp")}</h5>
-          </button>
-          <button className={cx("log-in")} onClick={openLoginModal}>
-            <h5 className={cx("action-btn")}>{t("login")}</h5>
-          </button>
-          <FontAwesomeIcon className={cx("menu")} icon={faBars} />
-        </div>
+        <>
+          <LanguageSwitcher languagesFix iconFix chooseFix />
+          <div className={cx("actions")}>
+            <button className={cx("sign-up")} onClick={openSignUpModal}>
+              <h5>{t("signUp")}</h5>
+            </button>
+            <button className={cx("log-in")} onClick={openLoginModal}>
+              <h5 className={cx("action-btn")}>{t("login")}</h5>
+            </button>
+            <FontAwesomeIcon className={cx("menu")} icon={faBars} />
+          </div>
+        </>
       )}
       {isLoginOpen && (
         <Modal isOpen={isLoginOpen} closeModal={closeLoginModal}>

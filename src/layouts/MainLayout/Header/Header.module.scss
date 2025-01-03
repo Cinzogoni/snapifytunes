@@ -31,7 +31,7 @@
 }
 
 .actions {
-  margin-right: 24px;
+  margin-right: 30px;
 }
 
 @media (min-width: 408px) {
@@ -82,9 +82,9 @@
 
 @media (max-width: 1024px) {
   .log-in {
-    width: 100px;
-    height: 40px;
-    font-size: 1.6rem;
+    width: 50px;
+    height: 30px;
+    font-size: 1.3rem;
     font-weight: 700;
     margin-left: 10px;
     background-color: var(--main--button-color);
@@ -103,9 +103,9 @@
   }
 
   .sign-up {
-    width: 100px;
-    height: 40px;
-    font-size: 1.6rem;
+    width: 50px;
+    height: 30px;
+    font-size: 1.3rem;
     font-weight: 700;
     margin-left: 10px;
     background-color: var(--main-background-color);
@@ -123,17 +123,17 @@
 @media (max-width: 1280px) {
   .logo-frame {
     width: unset;
-    margin-left: 30px;
+    margin: 0 30px;
     border-right: unset;
     box-shadow: unset;
   }
 
   .logo {
-    width: 28.8px;
-    height: 28.8px;
+    width: 22px;
+    height: 22px;
   }
 
   .name {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 }
