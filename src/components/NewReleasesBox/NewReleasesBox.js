@@ -16,7 +16,7 @@ import Player from "../Player";
 import TrackPopper from "~/layouts/MainLayout/Popper/TrackPopper";
 import YourPlaylistCheck from "../YourPlaylistCheck";
 
-import { useStreams } from "~/hooks/useStrreams";
+import { useStreams } from "~/hooks/useStream";
 
 function NewReleasesBox({
   trackId,

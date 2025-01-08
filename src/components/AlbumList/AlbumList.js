@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadphones, faLink } from "@fortawesome/free-solid-svg-icons";
 
 import { useAudioPlayer } from "../../context/AudioPlayerProvider";
-import { useStreams } from "~/hooks/useStrreams";
+import { useStreams } from "~/hooks/useStream";
 
 import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";

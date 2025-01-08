@@ -9,7 +9,7 @@ import { faHeadphones, faLink } from "@fortawesome/free-solid-svg-icons";
 
 import { useAudioPlayer } from "../../context/AudioPlayerProvider";
 import { useUser } from "../../context/UserProvider";
-import { useStreams } from "~/hooks/useStrreams";
+import { useStreams } from "~/hooks/useStream";
 
 import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
